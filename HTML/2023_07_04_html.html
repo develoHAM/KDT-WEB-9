@@ -6,10 +6,41 @@
         <title>HTML 수업 코드</title>
     </head>
     <body>
-        <img src="./cat.jpeg"/>
-
+        <!-- <img src="../image/cat.jpeg" alt="cat image" title="cat image" width="1000" /> -->
+        <!-- /Users/daewonkim/Desktop/github/KDT-WEB-9/HTML -->
         <!-- 파일 경로 지정 큐칙 -->
         <!-- 상대 경로 relative path : 현위치를 기준으로 경로 설정하는 것-->
-        <!-- 절대 경로 absolute path : -->
+        <!-- 절대 경로 absolute path : 컴퓨터 경로를 처음부터 끝까지 하나-->
+
+        <!-- 상대 경로 규칙 -->
+        <!-- <div>
+            ./ : 현재 위치를 의미
+            <br />
+            ../ : 현재 위치에서 한 단계 앞 폴더로 이동
+        </div>
+
+        <a href="https://www.naver.com" target="_blank">네이버</a>
+        <a href="https://www.naver.com" target="_self">네이버</a>
+
+        <a href="./new_page.html" target="_blank">new page</a> -->
+
+        <h1>설문조사</h1>
+        <label for="name">이름: </label><input type="text" name="user_name" id="name"/>
+        <label for="email">이메일: </label><input type="text" name="email" id="email"/>
+        <h2>나이</h2>
+        <input type="radio" name="age" value="10" id="10" checked /><label for="10"> 10대</label>
+        <input type="radio" name="age" value="20" id="20"  /><label for="20"> 20대</label>
+        <input type="radio" name="age" value="30" id="30"  /><label for="30"> 30대</label>
+        <input type="radio" name="age" value="40" id="40"  /><label for="40"> 40대</label>
+        <input type="radio" name="age" value="50" id="50"  /><label for="50"> 50대</label>
+        <input type="radio" name="age" value="60" id="60"  /><label for="60"> 60대 이상</label>
+        <h2>원하는 강의(복수응답가능합니다.)</h2>
+        <input type="checkbox" name="class" value="html" id="html" checked /><label for="html">html</label>
+        <input type="checkbox" name="class" value="javascript" id="javascript" /><label for="javascript">javascript</label>
+        <input type="checkbox" name="class" value="css" id="css" /><label for="css">css</label>
+        <p></p>
+        <textarea name='contents' cols="100" rows="20"></textarea>
+        <input type="button" value="제출" />
+
     </body>
 </html>
