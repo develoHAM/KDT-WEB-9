@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습 2</title>
+</head>
+<body>
+    <h1>설문조사</h1>
+    <label for="name">이름: </label><input type="text" name="user_name" id="name"/>
+    <label for="email">이메일: </label><input type="text" name="email" id="email"/>
+    <h2>나이</h2>
+    <input type="radio" name="age" value="10" id="10" checked /><label for="10"> 10대</label>
+    <input type="radio" name="age" value="20" id="20"  /><label for="20"> 20대</label>
+    <input type="radio" name="age" value="30" id="30"  /><label for="30"> 30대</label>
+    <input type="radio" name="age" value="40" id="40"  /><label for="40"> 40대</label>
+    <input type="radio" name="age" value="50" id="50"  /><label for="50"> 50대</label>
+    <input type="radio" name="age" value="60" id="60"  /><label for="60"> 60대 이상</label>
+    <h2>원하는 강의(복수응답가능합니다.)</h2>
+    <input type="checkbox" name="class" value="html" id="html" checked /><label for="html">html</label>
+    <input type="checkbox" name="class" value="javascript" id="javascript" /><label for="javascript">javascript</label>
+    <input type="checkbox" name="class" value="css" id="css" /><label for="css">css</label>
+    <p></p>
+    <textarea name='contents' cols="100" rows="20"></textarea>
+    <input type="button" value="제출" />
+</body>
+</html>
