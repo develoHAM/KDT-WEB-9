@@ -118,18 +118,32 @@
         } */
         /* 선택자 요소의 내부 앞에 내용(content)을 삽입 */
 
-        [value] {
+        /* [value] {
             color: red;
-        }
+        } */
         /* 속성을 포함한 요소 선택 */
 
+        /* ---------변수화------------- */
+        /* 속성값을 변수화 */
+        /* 변수 : 특정 값을 저장하는 공간 */
+        /* :root {
+            --main-color : white;
+            --main-bgcolor : orange;
+            --sub-color: teal;
+            --main-font-size: 30px;
+        }
+
+        div {
+            color: var(--main-color);
+            background-color: var(--main-bgcolor);
+            font-size: var(--main-font-size);
+        } */
+        /* "--변수이름 :"으로 변수 값을 정의 후 var(--변수이름)으로 사용한다 */
     </style>
 </head>
 <body>
-
-    <input type="text" value="HEOPY" />
-    <input type="password" value="1234" />
-    <input type="text" value="ABCE" disabled />
+    
+    <div>HELLO</div>
 
     <!-- <div id="greeting" class="word">Hello</div>
     <span>World</span>
@@ -171,5 +185,6 @@
     <!-- <input type="text" value="HEOPY" />
     <input type="password" value="1234" />
     <input type="text" value="ABCE" disabled /> -->
+
 </body>
 </html>
