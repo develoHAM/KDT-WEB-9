@@ -57,7 +57,29 @@
         } */
         /* 일반 형제 선택자, apple 클래스를 포함하고 있는 요소의 모든 형제 li 요소들을 선택*/
 
-        
+        /* ---------가상 클랙스 선택자--------- */
+
+        /* a:hover {
+            color: red;
+        } */
+        /* 선택자:hover = 마우스 커서가 올라가 있는 동안 선택 */
+
+        /* a:active {
+            color: yellow;
+        }
+        button:active {
+            color: blue;
+        } */
+        /* 선택자:active = 마우스를 클릭하고 있는 동안 선택 */
+
+        /* input:focus {
+            background-color: black;
+        }
+        div > .name-input:focus {
+            background-color: green;
+        } */
+        /* 선택자:focus = 선택자 요소가 포거스되는 동안 선택 */
+
     </style>
 </head>
 <body>
@@ -68,7 +90,7 @@
         <li class="strawberry">strawberries</li>
     </ul> -->
 
-    <div>
+    <!-- <div>
         <ul>
             <li class="apple">사과</li>
             <li>딸기</li>
@@ -77,6 +99,12 @@
         <div>당근</div>
         <p>토마토</p>
         <span class="orange"> 오렌지</span>
+    </div> -->
+
+    <a href="https://naver.com" target="_blank">네이버</a>
+    <button type="button">SUBMIT</button>
+    <div>
+        <input class="name-input" type="text" name="name" placeholder="이름을 입력하세요" />
     </div>
 </body>
 </html>
