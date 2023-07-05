@@ -108,24 +108,28 @@
         /* 선택자가 아닌 요소 선택 */
 
         /* ---------가상 요소 선택자--------- */
-        .example::after {
+        /* .example::after {
             content: " 😃 ";
-        }
+        } */
         /* 선택자 요소의 내부 뒤에 내용(content)을 삽입 */
 
-        .example::before {
+        /* .example::before {
             content: " ✌️ ";
-        }
+        } */
         /* 선택자 요소의 내부 앞에 내용(content)을 삽입 */
+
+        [value] {
+            color: red;
+        }
+        /* 속성을 포함한 요소 선택 */
+
     </style>
 </head>
 <body>
 
-    <div class="example">
-        <!-- before 에 해당하는 내용 -->
-        바로가기
-         <!-- after 에 해당하는 내용 -->
-    </div>
+    <input type="text" value="HEOPY" />
+    <input type="password" value="1234" />
+    <input type="text" value="ABCE" disabled />
 
     <!-- <div id="greeting" class="word">Hello</div>
     <span>World</span>
@@ -151,12 +155,21 @@
         <input class="name-input" type="text" name="name" placeholder="이름을 입력하세요" />
     </div> -->
 
-    <div class="fruits">
+    <!-- <div class="fruits">
         <span>딸기</span>
         <span>수박</span>
         <div>오렌지</div>
         <p>망고</p>
         <h3>사과</h3>
-    </div>
+    </div> -->
+
+
+    <!-- <div class="example">
+        바로가기
+    </div> -->
+
+    <!-- <input type="text" value="HEOPY" />
+    <input type="password" value="1234" />
+    <input type="text" value="ABCE" disabled /> -->
 </body>
 </html>
