@@ -80,17 +80,33 @@
         } */
         /* 선택자:focus = 선택자 요소가 포거스되는 동안 선택 */
 
-        .fruits span:first-child {
+        /* .fruits span:first-child {
             color: red;
-        }
+        } */
         /* 선택자:first-child = .fruits 의 첫번째 하위요소가 span 일경우, color 를 red 으로 바꾼다*/
+        /* 선택자가 형제 요소 중 첫째라면 선택 */
 
-        .fruits h3:last-child {
+        /* .fruits h3:last-child {
             color: green;
-        }
+        } */
         /* 선택자:last-child = .fruits 의 마지막 하위요소가 h3 일경우, color 를 green 으로 바꾼다*/
+        /* 선택자가 형제 요소 중 막내라면 선택 */
 
+        /* .fruits *:nth-child(2) {
+            color: red;
+        } */
+        /* 선택자:nth-child(n) = .fruits 요소중 (2) 번째 자식이 "*" 에 해당한다면 color 를 green 으로 바꾼다*/
 
+        /* .fruits *:nth-child(2n) {
+            color: red;
+        } */
+        /* "n"은 0 부터 시작한다*/
+
+        /* .fruits *:not(span) {
+            background-color: green;
+            color: white;
+        } */
+        /* 선택자가 아닌 요소 선택 */
     </style>
 </head>
 <body>
