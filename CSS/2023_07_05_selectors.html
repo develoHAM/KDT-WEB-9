@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>선택자 공부</title>
     <style>
-    
+        /* --------기본 선택자-------- */
         /* * {
             color: red;
         } */
@@ -21,18 +21,62 @@
         } */
         /* class 값 앞에 "." 을 붙여 해당 class 를 포함하고 있는 요소들을 선택한다 */
        
-        #greeting {
+        /* #greeting {
             background-color: aqua;
-        }
+        } */
         /* id 값 앞에 "#" 을 붙여 해당 id 를 포함하고 있는 요소를 선택한다 */
+
+        /* --------복합 선택자-------- */
+        /* span.orange {
+            color: orange;
+        } */
+        /* 일치 선택자, <span class="orange"> 오렌지</span> 코드를 선택 */
+
+        /* div > p {
+            color: navy;
+        } */
+        /* 자식 선택자, div의 자식중 p태그 선택 */
+
+        /* div > ul > .orange {
+            color: orange;
+        } */
+        /* 자식 선택자, div의 자식들중 ul의 자식들중 .orange class 를 포함하고 있는 요소 선택 */
+
+        /* div .orange {
+            background-color: red;
+        } */
+        /* 후손 선택자 (하위 요소) */
+
+        /* ul + div {
+            color: red;
+        } */
+        /* 인접 형제 선택자, ul 바로 다음 (인접한) div 를 선택 */
+
+        /* .apple ~ li {
+            color: red;
+        } */
+        /* 일반 형제 선택자, apple 클래스를 포함하고 있는 요소의 모든 형제 li 요소들을 선택*/
+
+        
     </style>
 </head>
 <body>
-    <div id="greeting" class="word">Hello</div>
+    <!-- <div id="greeting" class="word">Hello</div>
     <span>World</span>
     <ul>
         <li>apples</li>
         <li class="strawberry">strawberries</li>
-    </ul>
+    </ul> -->
+
+    <div>
+        <ul>
+            <li class="apple">사과</li>
+            <li>딸기</li>
+            <li class="orange">오렌지</li>
+        </ul>
+        <div>당근</div>
+        <p>토마토</p>
+        <span class="orange"> 오렌지</span>
+    </div>
 </body>
 </html>
