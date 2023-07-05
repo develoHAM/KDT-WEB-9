@@ -58,7 +58,6 @@
         /* 일반 형제 선택자, apple 클래스를 포함하고 있는 요소의 모든 형제 li 요소들을 선택*/
 
         /* ---------가상 클랙스 선택자--------- */
-
         /* a:hover {
             color: red;
         } */
@@ -107,9 +106,27 @@
             color: white;
         } */
         /* 선택자가 아닌 요소 선택 */
+
+        /* ---------가상 요소 선택자--------- */
+        .example::after {
+            content: " 😃 ";
+        }
+        /* 선택자 요소의 내부 뒤에 내용(content)을 삽입 */
+
+        .example::before {
+            content: " ✌️ ";
+        }
+        /* 선택자 요소의 내부 앞에 내용(content)을 삽입 */
     </style>
 </head>
 <body>
+
+    <div class="example">
+        <!-- before 에 해당하는 내용 -->
+        바로가기
+         <!-- after 에 해당하는 내용 -->
+    </div>
+
     <!-- <div id="greeting" class="word">Hello</div>
     <span>World</span>
     <ul>
