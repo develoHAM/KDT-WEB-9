@@ -80,6 +80,17 @@
         } */
         /* 선택자:focus = 선택자 요소가 포거스되는 동안 선택 */
 
+        .fruits span:first-child {
+            color: red;
+        }
+        /* 선택자:first-child = .fruits 의 첫번째 하위요소가 span 일경우, color 를 red 으로 바꾼다*/
+
+        .fruits h3:last-child {
+            color: green;
+        }
+        /* 선택자:last-child = .fruits 의 마지막 하위요소가 h3 일경우, color 를 green 으로 바꾼다*/
+
+
     </style>
 </head>
 <body>
@@ -101,10 +112,18 @@
         <span class="orange"> 오렌지</span>
     </div> -->
 
-    <a href="https://naver.com" target="_blank">네이버</a>
+    <!-- <a href="https://naver.com" target="_blank">네이버</a>
     <button type="button">SUBMIT</button>
     <div>
         <input class="name-input" type="text" name="name" placeholder="이름을 입력하세요" />
+    </div> -->
+
+    <div class="fruits">
+        <span>딸기</span>
+        <span>수박</span>
+        <div>오렌지</div>
+        <p>망고</p>
+        <h3>사과</h3>
     </div>
 </body>
 </html>
