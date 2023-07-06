@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS font 속성 공부</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap'); */
+        @font-face {
+            font-family: 'TTWanjudaedunsancheB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        :root {
+            font-size: 10px;
+        }
+        main {
+            font-size: 30px;
+        }
+        div {
+            font-weight: 100;
+        }
+        /* 글자의 두께 100 ~ 900 (100단위) */
+        .font-px {
+            font-size: 100px;
+            font-family: 'Noto Sans KR', sans-serif; 
+        }
+        /* font-family : google font link 방식 혹은 import 방식으로 글꼴 추가가 가능하다 link: link tag 를 head 요소에 추가, import: import tag 를 style 요소에 추가*/
+        .font-em {
+            font-size: 1.5em;
+        }
+        /* em : 부모 요소의 font-size 속성값 기준의 배수 */
+        .font-rem {
+            font-size: 2rem;
+            line-height: 2;
+        }
+        /* rem : 최상위 요소의 font-size 속성값 기준의 배수 */
+        /* line-height : 한줄의 높이 */
+        .font-per {
+            font-size: 200%;
+            font-family: 'TTWanjudaedunsancheB';
+        }
+        /* font-size : 부모 요소의 font-size 속성값 기준의 퍼센트 */
+        /* font-family : 눈누 폰트에서 font-face 요소 style 요소안에 삽입 후 동일한 font-family 로 적용 */
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="font-px">안녕하세요</div>
+        <div class="font-em">안녕하세요오</div>
+        <div class="font-rem">안녕하세요오오</div>
+        <div class="font-per">안녕하세요오오오</div>
+    </main>
+</body>
+</html>
