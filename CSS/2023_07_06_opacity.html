@@ -8,23 +8,29 @@
         div {
             width: 100px;
             height: 100px;
-            padding: 20px;
-            border: 15px solid red;
-            background-color: orange;
         }
-        .content-box {
-            box-sizing: content-box;
-            opacity: 0.5;
-        }
-        .border-box {
-            box-sizing: border-box;
+        .opacity {
             opacity: 0.7;
+            background-color: red;
+        }
+        .display-none {
+            background-color:grey;
+        }
+        .display-none:hover {
+            display: none;
+        }
+        .visibility-hidden {
+            background-color: blue;
+        }
+        .visibility-hidden:hover {
+            visibility: hidden;
         }
     </style>
 </head>
 <body>
-    <div class="content-box"></div>
-    <br />
-    <div class="border-box"></div>
+    <div class="opacity"></div>
+    <div class="display-none"></div>
+    <div class="visibility-hidden"></div>
+    
 </body>
 </html>
