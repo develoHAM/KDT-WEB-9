@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS border 공부</title>
+    <style>
+        .border-1 {
+            border-color: black red blue yellow;
+            border-style: solid dashed;
+            border-width: 10px 5px;
+        }
+        .border-2 {
+            border-top: 5px solid black;
+            border-left: 5px dashed red;
+            border-right-color: blue;
+            border-right-width: 15px;
+            border-right-style: solid;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+<body>
+    <div class="box border-1"></div>
+    <br />
+    <br />
+    <div class="box border-2"></div>
+</body>
+</html>
