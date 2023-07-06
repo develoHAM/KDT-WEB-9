@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS box-sizing 속성 공부</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color:bisque;
+        }
+        .content-box {
+            box-sizing: content-box;
+            padding: 20px;
+            border: 10px solid black;
+            margin: 30px;
+        }
+        .border-box {
+            box-sizing: border-box;
+            padding: 20px;
+            border: 10px solid black;
+            margin: 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="content-box box">HELLO</div>
+    <br />
+    <div class="border-box box">HELLO</div>
+</body>
+</html>
