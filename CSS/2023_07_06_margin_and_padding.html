@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS margin & padding 공부</title>
+    <style>
+        .block {
+            width: 200px;
+            height: 200px;
+            background-color:#0000008c;
+            margin-top: 100px;
+            margin-left: 100px;
+            margin-bottom: 50px;
+            margin-right: 20px;
+
+            /* margin: 100px 20px 50px 100px; */
+            /* 위에서 시작, 시계 방향으로 위 오른쪽 아래 왼쪽 지정 */
+
+            /* margin: 100px 20px; */
+            /* 위아래, 왼쪽오른쪽 순으로 지정 */
+
+            /* margin: 100px; */
+            /* 모든 방향 동일하게 적용 */
+
+            color: white;
+            font-size: 2em;
+            padding-top: 50px;
+            padding-left: 50px;
+
+            /* padding: 50px 0 0 50px; */
+        }
+
+        .inline {
+            background-color: blue;
+            color: white;
+            margin-top: 100px;
+            margin-left: 100px;
+            padding-top: 10px;
+            padding-left: 10px;
+            width: 200px;
+            /* inline 요소에서 margin 과 width 는 기본적으로 적용되지 않는다. padding 만 적용됨 */
+        }
+    </style>
+</head>
+<body>
+    <!-- margin : border 기준 외부 여백 -->
+    <!-- padding : border 기준 내부 여백 -->
+    <div class="block">HELLO</div>
+    <span class="inline">Hello World</span>
+</body>
+</html>

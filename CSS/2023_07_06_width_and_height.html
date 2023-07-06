@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS width and height 공부</title>
+    <style>
+
+        body {
+            margin: 0;
+        }
+
+        .mm-width {
+            background-color: rgba(165, 160, 160, 0.689);
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            /* width: 50vw; */
+            /* vw (viewport width), wh (viewport height), 브라우저 출력창의 크기 기준으로 계산되는 단위 */
+            /* line-height 와 height 를 일치시키면 세로 중앙 정렬 가능 */
+            height: 100px;
+            max-width: 600px;
+            min-width: 300px;
+            /* min & max : 최소 및 최대값으로 속성값을 제한함 */
+
+            width: calc(100vw - 200px);
+            /* calc() 함수 단위로 단위간 계산을 해줌 */
+
+            margin: auto;
+            /* margin: auto : 자동으로 중앙정렬 */
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="mm-width">HELLO</div>
+</body>
+</html>
