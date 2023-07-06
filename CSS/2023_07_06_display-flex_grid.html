@@ -6,26 +6,37 @@
     <title>CSS Display Flex 공부</title>
     <style>
         .flex-box {
-                
+            height: 500px;
+            background-color: aqua;
+            display: flex;
+            /* display: flex : 자식요소를 inline block 으로 만듬 */
+            justify-content: center;
+            /* flex 일 때 사용 가능. 가로 (flex direction : row 일 때) 가운데 정렬 */
+            align-items: center;
+            /* flex 일 때 사용 가능. 세로 (flex direction : row 일 때) 가운데 정렬 */
+            /* flex direction 이 column 으로 바뀌면, 위 두 속성의 가로, 세로가 바뀜 */
+            flex-direction: column;
+            /* column : flex 일 때 flex item (자식요소들) 을 세로로 정렬 */
+            /* row : flex 일 때 flex item (자식요소들) 을 가로로 정렬 */
+            
         }
         .child-box {
             width: 100px;
             height: 100px;
             background-color: blue;
             margin: 10px;
+            
         }
+
     </style>
 </head>
 <body>
     <div class="flex-box">
         <div class="child-box">
-
         </div>
         <div class="child-box">
-
         </div>
         <div class="child-box">
-
         </div>
     </div>
 </body>
