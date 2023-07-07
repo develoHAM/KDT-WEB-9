@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS z-index 실습 1</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .container {
+            width: 500px;
+            height: 500px;
+            background-color:antiquewhite;
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            text-align: right;
+        }
+        .one {
+            background-color: red;
+            position: absolute;
+            z-index: 1;
+        }
+        .two {
+            background-color: orange;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 3;
+        }
+        .three {
+            background-color: green;
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            z-index: 2;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item one">1</div>
+        <div class="item two">2</div>
+        <div class="item three">3</div>
+    </div>
+</body>
+</html>
