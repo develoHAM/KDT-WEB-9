@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS flex 실습 7</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .container {
+            background-color: antiquewhite;
+            width: 500px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            /* align-content: center; */
+            justify-content: center;
+        }
+        .container > div {
+            width: 100px;
+            height: 100px;
+        }
+        .container > div:nth-child(2n) {
+            background-color: brown;
+        }
+        .container > div:nth-child(2n+1) {
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item one"></div>
+        <div class="item two"></div>
+        <div class="item three"></div>
+        <div class="item four"></div>
+        <div class="item five"></div>
+        <div class="item six"></div>
+        <div class="item seven"></div>
+        <div class="item eight"></div>
+    </div>
+</body>
+</html>

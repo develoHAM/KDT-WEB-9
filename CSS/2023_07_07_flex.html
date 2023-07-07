@@ -5,25 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS flex 공부</title>
     <style>
-        .container {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
+        body {
+            margin: 0;
         }
-
-        .container > div {
+        .container {
+            background-color: antiquewhite;
+            height: 600px;
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: space-evenly; */
+            /* align-items: flex-end; */
+            align-content: center;
+        }
+        .container > div, .container-1 > div {
             width: 100px;
             height: 100px;
         }
-
         .red {
             background-color: red;
         }
-
         .orange {
             background-color: orange;
         }
-
         .yellow {
             background-color: yellow;
         }
@@ -37,6 +40,11 @@
         <div class="red"></div>
         <div class="orange"></div>
         <div class="yellow"></div>
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="yellow"></div>
+    </div>
+    <div class="container-1">
         <div class="red"></div>
         <div class="orange"></div>
         <div class="yellow"></div>
