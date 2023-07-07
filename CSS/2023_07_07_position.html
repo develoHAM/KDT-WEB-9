@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS position 속성 공부</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .r-1 {
+            background-color: red;
+            left: 20px;
+            top: 50px;
+        }
+
+        .r-2 {
+            background-color:blue;
+            bottom: 90px;
+        }
+
+        .r-3 {
+            background-color: yellow;
+            right: 40px;
+            bottom: 30px;
+        }
+
+        .parents {
+            position: relative;
+            width: auto;
+            height: 200px;
+        }
+
+        .absolute {
+            position: absolute;
+            background-color: orange;
+            /* left: 30px;
+            top: 50px; */
+            right: 10px;
+            bottom: 0px;
+        }
+
+        .absolute.a-1 {
+            right: 5%;
+            background-color: green;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="relative r-1"></div>
+    <div class="relative r-2"></div>
+    <div class="relative r-3"></div>
+
+    <div class="parents">
+        <div class="absolute a-1"></div>
+        <div class="absolute"></div>
+    </div>
+
+    <div class="fixed"></div>
+</body>
+</html>

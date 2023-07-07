@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS position 실습</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color:antiquewhite;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+        .item-1 {
+            position: relative;
+            left: 50px;
+            top: 30px;
+            background-color: red;
+        }
+        .item-2 {
+            position: absolute;
+            right: 30px;
+            bottom: 100px;
+            background-color: blue;
+        }
+        .item-3 {
+            position: fixed;
+            background-color: green;
+            right: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <div class="item-1 box"></div>
+        <div class="item-2 box"></div>
+        <div class="item-3 box"></div>
+    </div>
+</body>
+</html>
