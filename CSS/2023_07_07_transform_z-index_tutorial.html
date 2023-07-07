@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS z-index + transform 실습</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-color:antiquewhite;
+            position: relative;
+        }
+        img {
+            width: 200px;
+            height: 150px;
+            top: 300px;
+            position: absolute;
+            transform: skewY(25deg);
+            border: 2px solid black;
+        }
+        #one {
+            left: 50px;
+            z-index: 3;
+        }
+        #two {
+            left: 200px;
+            z-index: 2;
+        }
+        #three {
+            left: 350px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="one" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Wikipedia_Homepage_Chromium_Web_browser_36.png/1200px-Wikipedia_Homepage_Chromium_Web_browser_36.png" />
+        <img id="two" src="https://upload.wikimedia.org/wikipedia/en/f/fa/Naver_TV_website.jpg" />
+        <img id="three" src="https://upload.wikimedia.org/wikipedia/en/1/1c/YouTube_homepage.png" />
+    </div>
+</body>
+</html>
