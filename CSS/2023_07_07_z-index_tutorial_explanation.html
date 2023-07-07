@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .container > div {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .container > div:nth-child(n+2){
+            position: absolute;
+        }
+
+        .one {
+            position: relative;
+            background-color: rgb(87, 87, 255);
+        }
+
+        .two {
+            background-color: rgb(39, 39, 255);
+            left: 30px;
+            top: 70px;
+        }
+
+        .three {
+            background-color: rgb(150, 150, 255);
+            left: 60px;
+            top: 90px;
+        }
+
+        .four {
+            background-color: rgb(100, 100, 255);
+            left: 80px;
+            top: 110px;
+        }
+
+        .five {
+            background-color: rgb(200, 200, 255);
+            left: 100px;
+            top: 130px;
+            z-index: 6;
+        }
+
+        img {
+            position: absolute;
+            width: 500px;
+            z-index: 5;
+        }
+
+        .white-eye{
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            position: relative;
+            top: 15px;
+            left: 15px;
+        }
+        
+        .black-eye{
+            width: 15px;
+            height: 15px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="one">
+            <div class="white-eye">
+                <div class="black-eye"></div>
+            </div>
+        </div>
+        <div class="two"></div>
+        <div class="three"></div>
+        <div class="four"></div>
+        <div class="five"></div>
+        <img src="../pngwing.com.png" />
+    </div>
+</body>
+</html> 
