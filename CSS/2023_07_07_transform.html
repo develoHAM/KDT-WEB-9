@@ -11,6 +11,11 @@
         img {
             width: 100px;
             height: 100px;
+            /* transition-property: transform;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+            transition-delay: 2s; */
+            transition: transform 2s linear 2s;
         }
         img#translate:active {
             transform: translate(40px, 40px);
@@ -28,10 +33,27 @@
         img#skew:active {
             transform: skewY(-45deg);
         }
+
+        .box {
+            margin-left: 0;
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            transition: all 2s;
+        }
+
+        .box:hover {
+            width: 200px;
+            height: 200px;
+            margin-left: 50px;
+        }
+
+
     </style>
 </head>
 <body>
     <div>
+        <div class="box"></div>
         <img id="translate" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832" />
 
         <img id="scale" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832" />
