@@ -50,8 +50,6 @@
   }
   
   /* header2 */
-  .header2 {
-  }
   .header2 > .menus {
     display: flex;
     justify-content: space-between;
