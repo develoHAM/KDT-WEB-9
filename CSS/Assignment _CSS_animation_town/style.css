@@ -4,6 +4,26 @@
 */
 body {
   width: 100%;
+  animation: from-day-to-night 12s linear infinite;
+}
+
+@keyframes from-day-to-night {
+  0% {
+    background-color: #b1e1e2;
+  }
+  25% {
+    background-color: #fcd2e2;
+  }
+  50% {
+    background-color: #675577;
+  }
+  75% {
+    background-color: #636888;
+  }
+  100% {
+    background-color: #b1e1e2;
+  }
+
 }
 
 section {
@@ -12,28 +32,112 @@ section {
 }
 
 section .sky {
+  position: relative;
   width: 100%;
   height: 100%;
 }
 
 section .sky .sun {
+  position: absolute;
   width: 180px;
+  top: 100px;
+  left: 200px;
+  animation: sun-moving 12s linear infinite;
+}
+
+@keyframes sun-moving {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: rotate(180deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(180deg);
+    opacity: 0;
+  }
 }
 
 section .sky .moon {
+  position: absolute;
   width: 160px;
+  top: 100px;
+  left: 200px;
+  animation: moon-moving 12s linear infinite;
+}
+
+@keyframes moon-moving {
+  0% {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
 }
 
 section .sky .cloud_1 {
+  position: absolute;
   width: 160px;
+  left: 350px;
+  top: 250px;
+  animation: cloud1-moving 6s linear infinite alternate;
+}
+
+@keyframes cloud1-moving {
+  from {
+    left: 350px;
+    opacity: 1;
+  }
+  to {
+    left: 1000px;
+    opacity: 0;
+  }
 }
 
 section .sky .cloud_2 {
+  position: absolute;
   width: 90px;
+  left: 450px;
+  top: 300px;
+  animation: cloud2-moving 3s linear 0s infinite alternate;
+}
+
+@keyframes cloud2-moving {
+  from {
+    left: 450px;
+    opacity: 1;
+  }
+  to {
+    left: 1200px;
+    opacity: 0;
+  }
 }
 
 section .city .city_img {
+  position: relative;
   width: 100%;
+  left: 50%;
+  bottom: 50px;
 }
 
 /* ANIMATION */
@@ -45,26 +149,6 @@ section .city .city_img {
   - cloud_1: 큰 구름이 좌우로 이동하는 애니메이션
   - cloud_2: 작은 구름이 좌우로 이동하는 애니메이션
 */
-body {
-  /* animation: daytonight 2s alternate infinite; */
-}
-@keyframes daytonight {
-  0% {
-    background-color: #636888;
-  }
-  25% {
-    background-color: #b1e1e2;
-  }
-  50% {
-    background-color: #fcd2e2;
-  }
-  75% {
-    background-color: #675577;
-  }
-  100% {
-    background-color: #636888;
-  }
-}
 
 /*
   참고: 알아야 할 속성 소개
