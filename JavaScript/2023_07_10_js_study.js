@@ -93,5 +93,3 @@ const aaa = 15; // 값을 변경 할 수 없는 변수 = 상수
     // "짱구"가 배열안에 있는지 없는지 boolean 데이터로 출력한다
     console.log(isIncludes); 
 
-
-
