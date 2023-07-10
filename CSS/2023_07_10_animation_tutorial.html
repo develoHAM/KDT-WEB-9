@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS animation 실습</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+            border-radius: 50%;
+            animation: goaround 3s ease-in 6;
+            left: 20px;
+            top: 20px;
+        }
+
+        @keyframes goaround {
+            0% {
+                left: 20px;
+                top: 20px;
+            }
+
+            25% {
+                left: 220px;
+                top: 20px;
+            }
+
+            50% {
+                left: 220px;
+                top: 220px;
+            }
+
+            75% {
+                left: 20px;
+                top: 220px;
+            }
+
+            100% {
+                left: 20px;
+                top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
