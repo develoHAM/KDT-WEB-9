@@ -1,5 +1,5 @@
 
-let age = prompt("나이를 입력해주세요~")
+let age = Number(prompt("나이를 입력해주세요~"));
 
 if (age >= 20) {
     alert("성인");
@@ -11,4 +11,6 @@ if (age >= 20) {
     alert("초등학생")
 } else if (age >= 0) {
     alert("유아")
+} else {
+    alert("오류 발생")
 }
