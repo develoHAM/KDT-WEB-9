@@ -107,3 +107,27 @@ if (5 === "5") {
     console.log("5 와 '5'는 다른 자료형이다");
 }
 
+// switch 문
+
+let bla = "성춘향";
+
+switch(bla) {
+    case "성춘향":
+        console.log("여자")
+        break; // break 를 걸어줘야 해당하는 case 이후에 다른 case 조건들이 안읽힘
+    case "홍길동":
+        console.log("남자")
+        break;
+    default: 
+        console.log("잘 모르겠습니다.")
+        break;
+}
+
+// 3항 연산자 - 실행시킬 코드가 1줄이어야만 사용이 가능
+// 조건식 ? 조건이 참인 경우 : 조건이 거짓인 경우; 
+
+let age = 18;
+(age >= 20 && age < 100) ? console.log("성인") : console.log("미성년자");
+
+let state = age >= 20 ? 1 : 5;
+console.log(state);
