@@ -57,11 +57,53 @@ ddd(5); // => 10
 let num = ddd(5);
 console.log(num);
 
-let sum = (num1,num2) => {
+let sum = (num1,num2) => { // num1, num2 => 매개변수 (받는 변수)
     let num = num1 + num2;
     let mul = num * 5;
     return mul;
 }
-let sumMul = sum(3,6);
+let sumMul = sum(3,6); // 3, 6 => 인자 (넘기는 변수)
 console.log(sumMul);
+
+// 조건문 : 조건에 따라 다른 코드를 실행시키는 문법
+
+// if (조건) {
+
+// }
+
+let isShow = false;
+
+if (isShow) {
+    // 위 조건이 참일 경우 실행, 거짓일 경우 아무것도 실행하지 않는다 (else문 이 없기 때문)
+    console.log("보여준다!")
+}
+
+if (isShow) {
+    // 위 조건이 참일 경우 실행
+    console.log("보여준다!")
+} else {
+    // 위 조건이 거짓일 경우 실행
+    console.log("안보여준다!")
+}
+
+
+let number = 5;
+if ( number > 10 ) {
+    console.log("10보다 크다") // 거짓
+} else if ( number < 8 ) { // else if 가장 처음 조건이 거짓일 경우 하나의 조건을 더 추가하여 실행
+    console.log("8보다 작다") // 참, 따라서 실행
+} else {
+    console.log("다 아니야")
+}
+
+// if (조건1) { }
+// else if(조건2) { } // 조건1이 아니면서 다음조건(조건2)을 만족할 경우
+// else if(조건3) { } // 조건2이 아니면서 다음조건(조건3)을 만족할 경우
+// else { } // 위 조건들을 모두 만족하지 않을 경우
+
+if (5 === "5") {
+    console.log("5 와 '5'는 같은 자료형이다");
+} else {
+    console.log("5 와 '5'는 다른 자료형이다");
+}
 
