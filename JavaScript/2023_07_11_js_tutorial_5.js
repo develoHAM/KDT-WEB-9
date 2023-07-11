@@ -1,10 +1,10 @@
 
 let age = Number(prompt("나이를 입력해주세요~"));
-let gender = Number(prompt("성별을 입력해주세요~ (남자/여자)"));
+let gender = prompt("성별을 입력해주세요~ (남자/여자)");
 
 if (age >= 20) {
     if (gender == "남자") {
-        alert("성인 남자")
+        alert("성인 남자");
     } else {
         alert("성인 여자")
     }

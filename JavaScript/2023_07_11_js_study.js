@@ -131,3 +131,45 @@ let age = 18;
 
 let state = age >= 20 ? 1 : 5;
 console.log(state);
+
+
+// 반복문
+
+// for문
+for (let i=0; i<10; i++) { 
+    console.log("hi")
+}
+// let i=0; - 초기값
+// i<10; - 조건문
+// console.log("hi") - 명령문 (조건문이 참일 경우 실행 후 증감문으로 이동, 거짓일 경우 종료)
+// i++ - 증감문
+// 종료
+
+let fruits = ["apple", "banana", "orange", "grape", "plum"]
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}
+
+let numnum = 5;
+let summ = 0;
+for (let i = 1; i <= 5; i++) {
+    summ += i;
+}
+console.log(summ);
+
+
+
+// for (let i = 1; i <= 5; i--) {
+//     console.log(i)
+// } // => 잘못된 코드 (무한반복됨)
+
+for (let i = 5; i > 0; i--) {
+    console.log(i)
+}
+
+for (let i = 1; i <= 5; i++) {
+    for (let j = 0; j < 5; j++) {
+        console.log(j)
+    }
+    console.log(i)
+}
