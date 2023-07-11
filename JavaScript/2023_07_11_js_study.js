@@ -145,17 +145,17 @@ for (let i=0; i<10; i++) {
 // i++ - 증감문
 // 종료
 
-let fruits = ["apple", "banana", "orange", "grape", "plum"]
-for (let i = 0; i < fruits.length; i++) {
-    console.log(fruits[i]);
-}
+// let fruits = ["apple", "banana", "orange", "grape", "plum"]
+// for (let i = 0; i < fruits.length; i++) {
+//     console.log(fruits[i]);
+// }
 
 let numnum = 5;
 let summ = 0;
 for (let i = 1; i <= 5; i++) {
     summ += i;
 }
-console.log(summ);
+// console.log(summ);
 
 
 
@@ -164,12 +164,91 @@ console.log(summ);
 // } // => 잘못된 코드 (무한반복됨)
 
 for (let i = 5; i > 0; i--) {
-    console.log(i)
+    // console.log(i)
 }
 
 for (let i = 1; i <= 5; i++) {
     for (let j = 0; j < 5; j++) {
-        console.log(j)
+        // console.log(j)
     }
-    console.log(i)
+    // console.log(i)
 }
+
+// while문
+
+// for 문에서 while 문으로 바꿔보기
+
+// let fruits1 = ["apple", "banana", "orange", "grape", "plum"]
+// for (let i = 0; i < fruits.length; i++) {
+//     console.log(fruits[i]);
+// } 
+
+// let index = 0;
+// while (index < fruits1.length) {
+//     console.log(fruits[index]);
+//     index++;
+// }
+
+// let nom = NaN; //isNAN 함수는 숫자인지 아닌지 판별한다, 숫자이면 false 반환, 아니면 true 반환
+// while (isNaN(nom) || nom == 0) {
+//     nom = Number(prompt("숫자를 입력하세요"));
+// }
+// console.log(nom);
+
+
+
+// let nomber = 5;
+// while (true) {
+//     nomber = Number(prompt("10 이상의 숫자를 입력하세요"))
+//     if(nomber >= 10) {
+//         break;
+//     }
+// }
+
+
+// 구구단을 while 문으로
+// let i = 2;
+
+// while (i < 10) {
+//     let j = 1;
+//     while (j < 10) {
+//         console.log(`${i} * ${j} = ${i*j}`);
+//         j++;
+//     }
+//     i++;
+// }
+
+let fruits1 = ["apple", "banana", "orange", "grape", "plum"]
+for (let i = 0; i < fruits1.length; i++) {
+    if (fruits1[i] == "banana") {
+        continue;
+    }
+    console.log(fruits1[i]);
+} 
+
+
+// do while문
+
+let j = 10;
+do {
+    console.log(j);
+    j ++;            // 한번은 무조건 실행시키는 코드
+}
+while (j < 10);     // 그다음에 조건이 부합할 경우 반복
+
+
+// 배열에서 for of문
+let fruits3 = ["apple", "banana", "orange", "grape", "plum"]
+for (let i = 0; i < fruits3.length; i++) {
+    console.log(fruits3[i]);
+} 
+
+for (let f of fruits3) {
+    console.log(f);
+}
+
+// for (변수선언 of 배열) {
+
+// }
+
+// 배열, [].forEach
