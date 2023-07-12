@@ -251,4 +251,37 @@ for (let f of fruits3) {
 
 // }
 
-// 배열, [].forEach
+// 배열, [].forEach 는 함수의 매개변수로 함수를 받음
+
+
+
+let fruits4 = ["apple", "banana", "orange", "grape"]
+
+
+fruits4.forEach(function (data, index, arr){
+    console.log("data: ", data);
+    console.log("index: ", index);
+    console.log("arr: ", arr)
+})
+
+fruits4.forEach((data, index, arr) => {
+    console.log("data: ", data);
+    console.log("index: ", index);
+    console.log("arr: ", arr)
+})
+
+console.log("----------FOR EACH--------");
+
+let numbers = [1, 2, 3, 4, 5, 6];
+let fruits = ["사과", "바나나", "수박", "포도", "파인애플"];
+numbers.forEach(function (number, index, array) { console.log(number, index, array);
+});
+numbers.forEach((number, index, array) => {
+  console.log(number, index, array);
+});
+fruits.forEach(function (fruit, i, arr) {
+  console.log(fruit, i, arr);
+});
+fruits.forEach((fruit, i, arr) => {
+  console.log(fruit, i, arr);
+});
