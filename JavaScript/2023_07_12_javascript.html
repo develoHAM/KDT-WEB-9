@@ -4,9 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript 공부 3</title>
-    <script src="./2023_07_12_js_study.js"></script>
+    <!-- <script src="./2023_07_12_js_study.js"></script> -->
+    <!-- <script src="./2023_07_12_js_DOM_study.js"></script> -->
+    <style>
+
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+        .red {
+            background-color: red;
+        }
+        .orange {
+            background-color: orange;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div id='red' class="box red" onclick="redToggle()"></div>
+        <div id='orange' class="box orange"></div>
+        <div id='yellow' class="box yellow"></div>
+    </div>
+
+    <button onclick="createGreenBox()">생겨라!</button>
+    <button onclick="removeBox()">없어져라~</button>
+    <!-- <button type="button" onclick="redToggle()">깜빡 깜빡</button> -->
+
+    <!-- <input type="text" name="id" /> -->
+
+    <script>
+        let container = document.querySelector('.container')
+        // console.log(container)
+        // console.log(container.children[container.children.length-1])
+
+        let redBox = document.getElementById('red')
+        console.log(redBox.parentNode)
+        console.log(redBox.nextElementSibling)
+
+        let orangeBox = document.getElementById('orange')
+        console.log(orangeBox.previousElementSibling)
+        
+
+        function createGreenBox() {
+            let createBox = document.createElement('div')
+            createBox.className = "box"
+            let red = Math.random() * (255)
+            let green = Math.random() * (255)
+            let blue = Math.random() * (255)
+
+            createBox.style.backgroundColor = `rgb(${red},${green},${blue})`
+
+            // container.append(createBox) // 부모요소 (container) 에 자식으로 가장 마지막에 추가한다, 
+            container.appendChild(createBox) 
+            // append 는 매개변수로 문자열과 노드객체를 모두 받을 수 있다.
+            // appendChild 매개변수로 노드객체만 받을 수 있다.
+            // container.prepend(createBox) 
+            // prepend 는 부모요소에 첫번째 자식으로 추가
+
+            // orangeBox.before(createBox)
+            // orangeBox.after(createBox)
+            //요소 앞 뒤에 추가
+
+        }
+
+        function removeBox() {
+            let removeBox = document.querySelector('.container div:last-child')
+            // container.removeChild(removeBox)
+            orangeBox.remove()
+        }
+
+
+        // let redBox = document.getElementById('red')
+
+        // redBox.setAttribute('class','box orange')
+
+        // function redToggle() {
+        //     let redBox = document.getElementById('red');
+        //     if (redBox.classList.contains('red')) {
+        //         redBox.classList.remove('red');
+        //         redBox.classList.add('blue');
+        //     } else {
+        //         redBox.classList.remove('blue');
+        //         redBox.classList.add('red');
+        //     }
+        // }
+
+
+
+        // let redBoxbyID = document.getElementById('red');
+        // console.log(redBoxbyID);
+        // let boxes = document.getElementsByClassName('box');
+        // console.log(boxes);
+
+        // let boxesByTag = document.getElementsByTagName('div');
+        // console.log(boxesByTag);
+        
+        // let input = document.getElementsByName('id');
+        // console.log(input);
+
+
+        // let boxesBySelector = document.querySelector(".box");
+        // console.log(boxesBySelector);
+
+        // //querySelectorAll 는 id가 하나더라도 전체 선택자이기에 배열 같은 데이터로 반환된다
+        // let boxesBySelectorAll = document.querySelectorAll('.box');
+        // console.log(boxesBySelectorAll);
+
+        // let orangeBySelectorAll = document.querySelectorAll('#orange');
+        // console.log(orangeBySelectorAll);
+
+        // document.write("안녕?");
+
+        // let redBox = document.getElementById('red');
+        // redBox.innerHTML = '<span>aaa</span>'
+        // console.log(redBox.innerText);
+        // console.log(redBox.innerHTML);
+        // console.log(redBox.textContent);
+
+        // console.log(redBox.className)
+        // redBox.className = 'box yellow'
+
+        // function redToggle() {
+        //     let redBox = document.getElementById('red')
+        //     redBox.classList.toggle('red')
+        // }
+        //classList 속성은 toggle 함수 제공
+        //괄호 안에 들어온 값을 리스트 안에 존재하는지 알아서 판단
+        // 괄호 안에 들어온 값을 자동으로 추가하거나 삭제함
+
+        // function redToggle() {
+        //     let redBox = document.getElementById('red');
+        //     if (redBox.classList.contains('red')) {
+        //         redBox.classList.remove('red')
+        //      } else { 
+        //         redBox.classList.add('red')
+        //     }
+        // }
+
+
+        // classList 속성은 contains 함수 제공
+        // 괄호 안에 들어온 값이 클래스에 존재하는지 검사
+        // true false return
+
+        // classList 속성은 remove 함수 제공
+        // 괄호 안에 들어온 값을 리스트 안에서 삭제
+
+        // classList 속성은 add 함수 제공
+        // 괄호 안에 들어온 값을 리스트 안에 추가
+    </script>
 </body>
 </html>

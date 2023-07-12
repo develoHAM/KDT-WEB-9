@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM 실습 1</title>
+</head>
+<style>
+    body {
+        margin-top: 100px;
+    }
+</style>
+<body>
+    <div class="form">
+        <div>
+            <label for="value1">값 1:</label> 
+            <input type="text" name="value1" id="v1"/>
+        </div>
+
+        <div>
+            <label for="value2">값 2:</label>
+            <input type="text" name="value2" id="v2" />
+        </div>
+
+        <div>
+            <label for="operator">연산자:</label>
+            <input type="text" name="operator" id="operator" />
+        </div>
+
+        <div>
+            <label for="result">결과:</label>
+            <input type="text" name="result" id="result" />
+        </div>
+        
+        <button onclick="calculate()">계산하기</button>
+        <button onclick="reset()">초기화</button>
+
+        <script>
+
+            function calculate() {
+                let value1 = Number(document.getElementById('v1').value);
+                let value2 = Number(document.getElementById('v2').value);
+                let operator = document.getElementById('operator').value;
+                let result = document.getElementById('result');
+                switch (operator) {
+                    case '+': 
+                        result.setAttribute('value',`${value1 + value2}`);
+                        break;
+                    case '-': 
+                        result.setAttribute('value',`${value1 - value2}`);
+                        break;
+                    case '*': 
+                        result.setAttribute('value',`${value1 * value2}`);
+                        break;
+                    case '/': 
+                        result.setAttribute('value',`${value1 / value2}`);
+                        break;
+                }
+            }
+
+            function reset() {
+                let value1 = document.getElementById('v1');
+                let value2 = document.getElementById('v2');
+                let operator = document.getElementById('operator');
+                let result = document.getElementById('result');
+                value1.value = '';
+                value2.value = '';
+                operator.value = '';
+                result.value = '';
+            }
+            
+
+        </script>
+    </div>
+</body>
+</html>
