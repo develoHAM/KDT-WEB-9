@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery 실습 1</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p id="title">과일을 골라볼께요</p>
+    </div>
+    <!-- <button type="button" id="apple" onclick="apple()">사과</button>
+    <button type="button" id="banana" onclick="banana()">바나나</button>
+    <button type="button" id="grape" onclick="grape()">포도</button>
+    <button type="button" id="peach" onclick="peach()">복숭아</button> -->
+
+    <button type="button" id="apple" onclick="changePicture('apple')">사과</button>
+    <button type="button" id="banana" onclick="changePicture('banana')">바나나</button>
+    <button type="button" id="grape" onclick="changePicture('grape')">포도</button>
+    <button type="button" id="peach" onclick="changePicture('peach')">복숭아</button>
+
+    <script>
+
+        function changePicture(fruit) {
+
+            $('.container').children().remove();
+
+            switch (fruit) {
+                case 'apple': 
+                    fruit = 'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png';
+                    break;
+                case 'banana':
+                    fruit = 'https://th-thumbnailer.cdn-si-edu.com/4Nq8HbTKgX6djk07DqHqRsRuFq0=/1000x750/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/d5/24/d5243019-e0fc-4b3c-8cdb-48e22f38bff2/istock-183380744.jpg';
+                    break;
+                case 'grape':
+                    fruit = 'https://img.freepik.com/premium-vector/isolated-dark-grape-with-green-leaf_317810-1956.jpg?w=2000';
+                    break;
+                case 'peach':
+                    fruit = 'https://static.libertyprim.com/files/familles/peche-large.jpg?1574630286';
+                    break;
+            }
+            $('.container').append(`<img src=${fruit} width="200" />`);
+            
+        }
+
+        function apple() {
+            $('.container').children().remove();
+            $('.container').append(`<img src='https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png' width="200" />`);
+        }
+        function banana() {
+            $('.container').children().remove();
+            $('.container').append(`<img src='https://th-thumbnailer.cdn-si-edu.com/4Nq8HbTKgX6djk07DqHqRsRuFq0=/1000x750/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/d5/24/d5243019-e0fc-4b3c-8cdb-48e22f38bff2/istock-183380744.jpg' width="200" />`);
+        }
+        function grape() {
+            $('.container').children().remove();
+            $('.container').append(`<img src='https://img.freepik.com/premium-vector/isolated-dark-grape-with-green-leaf_317810-1956.jpg?w=2000' width="200"/>`);
+        }
+        function peach() {
+            $('.container').children().remove();
+            $('.container').append(`<img src='https://static.libertyprim.com/files/familles/peche-large.jpg?1574630286' width="200" />`);
+        }
+
+    </script>
+</body>
+</html>

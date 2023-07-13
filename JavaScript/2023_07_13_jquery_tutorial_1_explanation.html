@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .apple {
+            background-image: url("https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png");
+        }
+        .banana {
+            background-image: url('https://th-thumbnailer.cdn-si-edu.com/4Nq8HbTKgX6djk07DqHqRsRuFq0=/1000x750/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/d5/24/d5243019-e0fc-4b3c-8cdb-48e22f38bff2/istock-183380744.jpg');
+        }
+        .grape {
+            background-image: url('https://img.freepik.com/premium-vector/isolated-dark-grape-with-green-leaf_317810-1956.jpg?w=2000');
+        }
+        .peach {
+            background-image: url('https://static.libertyprim.com/files/familles/peche-large.jpg?1574630286');
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="apple"></div> -->
+    <img src="https://static.libertyprim.com/files/familles/peche-large.jpg?1574630286" width="300" height="300" />
+    <br />
+    <button type="button" onclick="changeFruits('apple')">사과</button>
+    <button type="button" onclick="changeFruits('banana')">바나나</button>
+    <button type="button" onclick="changeFruits('grape')">포도</button>
+    <button type="button" onclick="changeFruits('peach')">복숭아</button>
+
+    <script>
+        function changeFruits(fruit) {
+            // $("div").removeClass().addClass(fruit)
+            $("img").attr("src", `../image/${fruit}.png`)
+        }
+    </script>
+</body>
+</html>

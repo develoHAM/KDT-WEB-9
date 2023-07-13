@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .purple {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="box red" onclick="switchColor()"></div>
+    <script>
+
+        function switchColor(){
+            if($(".box").hasClass("red")) {
+                $(".box").switchClass("red", "orange", 500);
+                console.log($(".box"))
+            } else if($(".box").hasClass("orange")) {
+                $(".box").switchClass("orange", "yellow", 500);
+            } else if($(".box").hasClass("yellow")) {
+                $(".box").switchClass("yellow", "green", 500); 
+            } else if($(".box").hasClass("green")) {
+                $(".box").switchClass("green", "blue", 500); 
+            } else if($(".box").hasClass("blue")) {
+                $(".box").switchClass("blue", "purple", 500); 
+            } else if($(".box").hasClass("purple")) {
+                $(".box").switchClass("purple", "red", 500); 
+            }
+        }
+
+    </script>
+</body>
+</html>

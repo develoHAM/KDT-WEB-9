@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery  listener 공부</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" name="id" id="id" />
+        <input type="text" name="pw" id="pw" />
+    </div>
+
+    <script>
+        $(window).ready(function() {
+            $('.container').append(`<h1>안녕</h1>`)
+        })
+
+        $(function() { // 페이지 로드 완료 후에 실행되는 함수
+            $('.container').append(`<h1>안녕</h1>`)
+        })
+
+        // $('div').on('click', function(){
+        //     alert('클릭')
+        // })
+
+        // $('div').click(function(){
+        //     alert('클릭')
+        // })
+
+        // $('div').hover(function(){
+        //     alert('클릭')
+        // })
+        
+        $('div').hover(function(){
+            $('.container').attr('style','background-color: blue');
+            console.log('hover');
+        })
+
+        // $('div').mouseover(function(){
+        //     $('.container').attr('style','background-color: blue');
+        // })
+
+        $("input").keydown(function(e){
+            console.log(e.currentTarget)
+            console.log(this)
+            console.log(e.key === "Down")
+        })
+
+    </script>
+    
+</body>
+</html>
