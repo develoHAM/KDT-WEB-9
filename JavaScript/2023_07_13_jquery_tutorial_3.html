@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery 실습 3</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+
+    <style>
+        .table-container {
+            position: absolute;
+        }
+        .table-month {
+            font-size: 30px;
+            width: 500px;
+            height: 100px;
+            text-align: center;
+            color: green;
+            
+        }
+        tr > td:nth-child(6), tr > th:nth-child(6) {
+            color: blue;
+        }
+        tr > td:nth-child(7), tr > th:nth-child(7) {
+            color: red;
+        }
+        /* ----------------------------------- */
+        .table {
+            width: 500px;
+            height: 500px;
+            text-align: center;
+            table-layout: fixed;
+        }
+        .tableHeadings, .tableRows {
+            vertical-align: top;
+        }
+
+        th, td {
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+        }
+        .added {
+            height: 60px;
+            word-wrap: break-word;
+            overflow: auto;
+        }
+
+        td > div:hover {
+            font-size: 20px;
+            cursor:cell;
+        }
+    </style>
+
+</head>
+<body>
+    <label>날짜 :</label> 
+    <input type="text" value="" name="date" id="date" />
+    <br />
+    <label>내용 :</label> 
+    <input type="text" value="" name="content" id="content" />
+    <br />
+    <button type="button" id="submit">작성</button>
+
+    <div class="table-container">
+        <div class="table-month">2023년 7월</div>
+        <table class="table">
+            <tr class="tableHeadings">
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+                <th>일</th>
+            </tr>
+            <tr class="tableRows">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <div>1</div>
+                </td>
+                <td>
+                    <div>1</div>
+                </td>
+            </tr>
+            <tr class="tableRows">
+                <td>
+                    <div>3</div>
+                </td>
+                <td>
+                    <div>4</div>
+                </td>
+                <td>
+                    <div>5</div>
+                </td>
+                <td>
+                    <div>6</div>
+                </td>
+                <td>
+                    <div>7</div>
+                </td>
+                <td>
+                    <div>8</div>
+                </td>
+                <td>
+                    <div>9</div>
+                </td>
+            </tr>
+            <tr class="tableRows">
+                <td>
+                    <div>10</div>
+                </td>
+                <td>
+                    <div>11</div>
+                </td>
+                <td>
+                    <div>12</div>
+                </td>
+                <td>
+                    <div>13</div>
+                </td>
+                <td>
+                    <div>14</div>
+                </td>
+                <td>
+                    <div>15</div>
+                </td>
+                <td>
+                    <div>16</div>
+                </td>
+            </tr>
+            <tr class="tableRows">
+                <td>
+                    <div>17</div>
+                </td>
+                <td>
+                    <div>18</div>
+                </td>
+                <td>
+                    <div>19</div>
+                </td>
+                <td>
+                    <div>20</div>
+                </td>
+                <td>
+                    <div>21</div>
+                </td>
+                <td>
+                    <div>22</div>
+                </td>
+                <td>
+                    <div>23</div>
+                </td>
+            </tr>
+            <tr class="tableRows">
+                <td>
+                    <div>24</div>
+                </td>
+                <td>
+                    <div>25</div>
+                </td>
+                <td>
+                    <div>26</div>
+                </td>
+                <td>
+                    <div>27</div>
+                </td>
+                <td>
+                    <div>28</div>
+                </td>
+                <td>
+                    <div>29</div>
+                </td>
+                <td>
+                    <div>30</div>
+                </td>
+            </tr>
+            <tr class="tableRows">
+                <td>
+                    <div>31</div>
+                </td>
+                <td>
+                    <div></div>
+                </td>
+                <td>
+                    <div></div>
+                </td>
+                <td>
+                    <div></div>
+                </td>
+                <td>
+                    <div></div>
+                </td>
+                <td>
+                    <div></div>
+                </td>
+                <td>
+                    <div></div>
+                </td>
+            </tr>
+        </table>
+
+        <script>
+            
+            let date;
+            content=null;
+            $('td > div').click(function(e){
+                date = this;
+                $("#date").attr('value',this.innerText)
+                console.log(a)
+            })
+
+            $('#content').blur(function(){
+                content = this.value;
+            })
+
+            $('#submit').click(function(){
+                $(date).parent().append(content)
+            })
+            
+            
+
+        </script>
+    </div>
+
+
+
+
+</body>
+</html>
