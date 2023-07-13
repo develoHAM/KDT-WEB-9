@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript addEventListener Study</title>
+    <style>
+
+    </style>
+    <script>
+        window.addEventListener('load', ()=> {
+            let div = document.querySelector('div');
+            div.style.marginLeft = '100px'
+        })
+
+        window.addEventListener('resize', ()=> {
+            if (window.innerWidth >= 400){
+                console.log("크다");
+            }
+        })
+
+
+    </script>
+</head>
+<body>
+    <!-- <div onclick="aaa()"></div> -->
+    <button>버튼</button>
+    <input type="text" name="id" placeholder="id 입력하세요" />
+    <input type="password" name="pw" placeholder="비밀번호를 입력해주세요." id="pw" />
+    <input type="password" name="pw_check" placeholder="비밀번호를 입력해주세요." id="pw_check" />
+
+    <div style="width: 100px; height: 900px; background-color: red; transition: 1s;"></div>
+
+
+
+    <script>    
+
+        // function aaa() {
+
+        // }
+        
+        let button = document.querySelector('button');
+
+        button.addEventListener('click', function() {
+            alert('클릭!')
+        })
+
+        
+        let input = document.getElementById('pw')
+        input.addEventListener('keyup', (e) => {
+            if(e.key == "Enter") {
+                alert('로그인!')
+            }
+        })
+
+        input.addEventListener('change', (e) => {
+            console.log(e.currentTarget.value)
+        })
+        
+        document.getElementById('pw_check').addEventListener('change', (e) => {
+            if (input.value = e.currentTarget.value) {
+                alert("같다")
+            } else {
+                alert('다르다')
+            }
+        })
+
+        window.addEventListener('scroll', ()=> {
+            alert('scroll');
+        })
+
+        
+      
+        // button.addEventListener('mouseout', function(){
+        //     alert('mouseout');
+        // })
+
+        // button.addEventListener('mouseover', function(){
+        //     alert('mouseover');
+        // })
+
+        // let input = document.querySelectorAll('input')
+        // for (let i = 0; i<input.length; i++) {
+
+        //     input[i].addEventListener('focus', (e)=>{
+        //     // event, e, target
+        //     // console.log(e.currentTarget)
+        //     // input.style.backgroundColor = 'black';
+        //         e.currentTarget.style.backgroundColor = 'black';
+        //     })
+
+        //     input[i].addEventListener('blur', (e)=>{
+        //     // input.style.backgroundColor = 'white';
+        //         e.currentTarget.style.backgroundColor = 'initial';
+        //     })
+        // }
+
+        
+
+    </script>
+</body>
+</html>
