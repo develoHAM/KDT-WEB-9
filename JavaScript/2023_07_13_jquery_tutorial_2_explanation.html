@@ -40,26 +40,36 @@
     </style>
 </head>
 <body>
-    <div class="box red" onclick="switchColor()"></div>
+    <div class="box red" onclick="switchColor2()"></div>
     <script>
 
         function switchColor(){
             if($(".box").hasClass("red")) {
-                $(".box").switchClass("red", "orange", 500);
-                console.log($(".box"))
+                $(".box").switchClass("red", "orange", 500) 
             } else if($(".box").hasClass("orange")) {
-                $(".box").switchClass("orange", "yellow", 500);
+                $(".box").switchClass("orange", "yellow", 500) 
             } else if($(".box").hasClass("yellow")) {
-                $(".box").switchClass("yellow", "green", 500); 
+                $(".box").switchClass("yellow", "green", 500) 
             } else if($(".box").hasClass("green")) {
-                $(".box").switchClass("green", "blue", 500); 
+                $(".box").switchClass("green", "blue", 500) 
             } else if($(".box").hasClass("blue")) {
-                $(".box").switchClass("blue", "purple", 500); 
+                $(".box").switchClass("blue", "purple", 500) 
             } else if($(".box").hasClass("purple")) {
-                $(".box").switchClass("purple", "red", 500); 
+                $(".box").switchClass("purple", "red", 500) 
             }
         }
 
+        const colors = ["red", "orange", "yellow", "green", "blue", "purple", "red"]
+        let num = 0;
+        function switchColor2(){
+            // 인덱스가 5를 넘기 않도록 나머지 연산자 사용함.
+            // let num2 = num%6;
+            $(".box").switchClass(colors[num], colors[num+1])
+            // $(".box").switchClass(colors[num2], colors[(num2+1)%6])
+            num++;
+            
+            if (num === colors.length - 1) num = 0;
+        }
     </script>
 </body>
 </html>
