@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM 실습 2</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div>방명록입니다.</div>
+    <br />
+    <label for="writer">작성자: </label>
+    <input type="text" name="writer" id="writer">
+    <br />
+    <br />
+    <label for="content">내용: </label>
+    <input type="text" name="content" id="content">
+    <br />
+    <br />
+    <button type="button" onclick="add2()">작성</button>
+    
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일</th>
+        </tr>
+    </table>
+
+    <script>
+        let num = 1;
+
+        function add2() {
+            let table = document.querySelector('table');
+            let tr = document.createElement('tr');
+            //tr 만들기
+
+            let writerTd = document.querySelector('#writer').value;
+            let contentTd = document.querySelector('#content').value;
+            let dateTd = new Date();
+            let dateStr = `${dateTd.getFullYear()}-${dateTd.getMonth()+1}-${dateTd.getDate()} ${dateTd.getHours()}:${dateTd.getMinutes()}`
+
+            tr.innerHTML = `
+
+                <td>${num}</td>
+                <td>${writerTd}</td>
+                <td>${contentTd}</td>
+                <td>${dateStr}</td>
+
+            `
+            table.appendChild(tr);
+            num++;
+            document.getElementById('writer').value = '';
+            document.getElementById('content').value = '';
+        }
+
+        function add() {
+            //TR 만들기
+            let table = document.querySelector('table');
+
+            let tableRow = document.createElement('tr');
+
+            table.appendChild(tableRow);
+
+            //번호 TD 만들기
+            let number = document.createElement('td');
+            number.innerText = num;
+            tableRow.appendChild(number);
+            num++;
+
+            //작성자
+            let writer = document.createElement('td');
+            let writerValue = document.getElementById('writer').value;
+            writer.innerText = writerValue;
+            tableRow.appendChild(writer);
+
+            //내용
+            let content = document.createElement('td');
+            let contentValue = document.getElementById('content').value;
+            content.innerText = contentValue;
+            tableRow.appendChild(content);
+
+            //날짜
+            let dateValue = document.createElement('td');
+            let dateCalculated = new Date();
+            let year = dateCalculated.getFullYear();
+            let month = dateCalculated.getMonth()+1;
+            let date = dateCalculated.getDate();
+            let hour = dateCalculated.getHours();
+            let minute = dateCalculated.getMinutes();
+            dateValue.innerText = `${year}-${month}-${date} ${hour}:${minute}`;
+            tableRow.appendChild(dateValue);
+
+
+            //Reset
+            document.querySelector('#writer').value = '';
+            document.querySelector('#content').value = '';
+        }
+
+
+    </script>
+</body>
+</html>
