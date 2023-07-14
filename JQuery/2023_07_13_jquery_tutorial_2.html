@@ -44,12 +44,12 @@
         let num = 0;
 
         function changeColor() {
-            if (num == 5) {
-                num = 0;
-                $('.box').switchClass(colorArr[colorArr.length-1],colorArr[num]);                
-            } else {
+            if (num != 5) {
                 $('.box').switchClass(colorArr[num],colorArr[num+1]);
-                num++;
+                num++;              
+            } else {
+                num = 0;
+                $('.box').switchClass(colorArr[colorArr.length-1],colorArr[num]);      
             }
         }
         
