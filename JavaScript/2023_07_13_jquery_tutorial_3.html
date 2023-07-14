@@ -208,19 +208,17 @@
 
     <script>
         let date;
-        let content=null;
         $('td > div:nth-child(1)').click(function(){
             date = this;
             $("#date").attr('value',this.innerText)
-            console.log(date)
         })
 
-        $('#content').blur(function(){
-            content = this.value;
-            console.log(content)
-        })
+        // $('#content').blur(function(){
+        //     content = this.value;
+        // })
 
         $('#submit').click(function(){
+            let content = $("#content").val();
             $(date).parent().append(`<div>${content}</div>`)
             $('div ~ div').addClass('added')
         })
