@@ -32,14 +32,12 @@
             text-align: center;
             table-layout: fixed;
         }
-        .tableHeadings, .tableRows {
-            vertical-align: top;
-        }
 
         th, td {
             width: 80px;
             height: 80px;
             overflow: hidden;
+            vertical-align: top;
         }
         .added {
             height: 60px;
@@ -48,8 +46,8 @@
         }
 
         td > div:nth-child(1):hover {
-            font-size: 20px;
-            cursor:cell;
+            transform: scale(1.4);
+            cursor: pointer;
         }
     </style>
 
@@ -207,17 +205,30 @@
     </div>
 
     <script>
-        let date;
+        // let td = null;
+        let date = null;
         $('td > div:nth-child(1)').click(function(){
+            // console.log(this) //선택된 요소를 찾는 방법1
+            // console.log(e.currentTarget) //선택된 요소를 찾는 방법2
+            td = this;
+            
+            // 1. 클릭한 요소의 날짜
+            // date = $(this).text();
+            // 2. input#date 선택해서 1번 값 넣기
+            // $('#date').val(date)
+
             date = this;
             $("#date").attr('value',this.innerText)
         })
-
         // $('#content').blur(function(){
         //     content = this.value;
         // })
-
+        
         $('#submit').click(function(){
+            // let content = $('#content').val()
+            // $(td).parent().append(`<div>${content}</div>`)
+
+
             let content = $("#content").val();
             $(date).parent().append(`<div>${content}</div>`)
             $('div ~ div').addClass('added')
