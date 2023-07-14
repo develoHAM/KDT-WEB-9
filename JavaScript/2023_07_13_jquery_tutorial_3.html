@@ -19,10 +19,10 @@
             color: green;
             
         }
-        tr > td:nth-child(6), tr > th:nth-child(6) {
+        tr > th:nth-child(6), tr > td:nth-child(6) > div:nth-child(1) {
             color: blue;
         }
-        tr > td:nth-child(7), tr > th:nth-child(7) {
+        tr > th:nth-child(7), tr > td:nth-child(7) > div:nth-child(1) {
             color: red;
         }
         /* ----------------------------------- */
@@ -47,7 +47,7 @@
             overflow: auto;
         }
 
-        td > div:hover {
+        td > div:nth-child(1):hover {
             font-size: 20px;
             cursor:cell;
         }
@@ -85,7 +85,7 @@
                     <div>1</div>
                 </td>
                 <td>
-                    <div>1</div>
+                    <div>2</div>
                 </td>
             </tr>
             <tr class="tableRows">
@@ -204,32 +204,27 @@
                 </td>
             </tr>
         </table>
-
-        <script>
-            
-            let date;
-            content=null;
-            $('td > div').click(function(e){
-                date = this;
-                $("#date").attr('value',this.innerText)
-                console.log(a)
-            })
-
-            $('#content').blur(function(){
-                content = this.value;
-            })
-
-            $('#submit').click(function(){
-                $(date).parent().append(content)
-            })
-            
-            
-
-        </script>
     </div>
 
+    <script>
+        let date;
+        let content=null;
+        $('td > div:nth-child(1)').click(function(){
+            date = this;
+            $("#date").attr('value',this.innerText)
+            console.log(date)
+        })
 
+        $('#content').blur(function(){
+            content = this.value;
+            console.log(content)
+        })
 
+        $('#submit').click(function(){
+            $(date).parent().append(`<div>${content}</div>`)
+            $('div ~ div').addClass('added')
+        })
+    </script>
 
 </body>
 </html>
