@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 반응형 웹 공부</title>
+
+    <!-- <style>
+
+        body{
+            background-color:indianred;
+            color: white;
+        }
+        .box {
+            font-size: 100px;
+        }
+        /* @media 유형 and (크기 조건) {} */
+        /* 유형 : screen, print, all */
+        /* 크기 조건 : max, min-width / max, min-height */
+        /* max-width : 오른쪽에 나온 숫자 값 이하일때 */
+        /* min-width : 오른쪽에 나온 숫자 값 이상일때 */
+        @media screen and (max-width: 700px) {
+            body {
+                background-color: green;
+                font-family: sans-serif;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            body {
+                background-color: yellow;
+                font-family: sans-serif;
+            }
+        }
+
+        @media screen and (max-width: 300px) {
+            body {
+                background-color: black;
+                font-family: sans-serif;
+            }
+        }
+
+
+
+        /* @media print {
+            .box {
+                display: none;
+            }
+        } */
+    </style> -->
+
+    <style>
+        body {
+            background-color: black;
+        }
+
+        /* @media screen and (min-width: 300px) {
+            body {
+                background-color: yellow;
+            }
+        }
+
+        @media screen and (min-width: 500px) {
+            body {
+                background-color: green;
+            }
+        } */
+
+        @media screen and (orientation: landscape) {
+            body {
+                background-color: blue;
+            } 
+        }
+
+        @media screen and (orientation: portrait) {
+            body {
+                background-color: red;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="box">Hi</div>
+</body>
+</html>
