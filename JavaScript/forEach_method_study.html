@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach 메서드 공부</title>
+</head>
+<body>
+    <script>
+        // -----JS string methods--------
+
+        let str = "Hello World "
+
+        //length : 문자열의 길이를 반환 (공백포함)
+        
+        str.length; // 12
+        //toUppercase() & toLowercase() : 문자열 전체를 대문자, 혹은 소문자로 변경하여 반환
+        str.toLocaleLowerCase(); // hello world 
+        str.toLocaleUpperCase(); // HELLO WORLD 
+
+        //indexOf('') : 매개변수로 문자열을 받아서 해당하는 처음 인덱스 숫자 반환, 해당하지 않을 경우 -1 반환
+        str.indexOf('l'); // 2
+        str.indexOf('z'); // -1
+
+        // slice(startIndex, [endIndex]) : 지정된 startIndex 매개변수의 인덱스부터 endIndex 매개변수 -1 까지 잘르고 나머지를 반환 
+        str.slice(4,8); // o Wo
+        str.slice(3,-4);
+
+        // replace(문자열1, 문자열2) : 처음 문자열1을 문자열2로 변경하여 반환
+        str.replace('l','e'); // Heelo World 
+
+        // replaceAll(문자열1, 문자열2) : 모든 문자열1을 문자열2로 변경하여 반환
+        str.replaceAll('l','e'); // Heeeo Wored 
+
+        // repeat(n) : 문자열에 대해 n번 반복하여 반환
+        str.repeat(3); // Hello World Hello World Hello World 
+
+        // trim() : 문자열의 양끝 공백을 빼고 반환
+        str.trim(); // Hello World
+
+        // split(매개변수) : 매개변수로 들어온 문자열을 기준으로 문자열을 나눠서 배열로 반환
+        str.split(''); // 'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', ' ']
+        str.split('l'); // ['He', '', 'o Wor', 'd ']
+
+        // 메소드 체이닝
+        // let str = "Hello World "
+
+        console.log(str.toUpperCase().replace('D','y').repeat(2)); // HELLO WORLy HELLO WORLy 
+
+        let data = new Date()
+        console.log(data);
+
+    </script>
+</body>
+</html>
