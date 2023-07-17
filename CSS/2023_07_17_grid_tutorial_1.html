@@ -6,18 +6,25 @@
     <title>CSS grid 실습1</title>
 
     <style>
+        body {
+            margin: 0;
+        }
         .container {
             height: 100vh;
             font-style: italic;
             text-align: center;
-            line-height: 100px;
             display: grid;
             grid-template-rows: repeat(4, 1fr);
             grid-template-columns: repeat(6, 1fr);
+
         }
         .item {
             width: auto;
             height: auto;
+            place-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .red {
             background-color: #f94144;
@@ -27,7 +34,6 @@
             background-color: #F3722C;
             grid-row: auto / span 2;
             height: auto;
-            line-height: 200px;
         }
         .yellow {
             background-color: #F9C74F;
@@ -37,7 +43,6 @@
             background-color: #43AA8B;
             grid-row: auto / span 2;
             height: auto;
-            line-height: 200px;
         }
         .tangerine {
             background-color: #F8961E;
