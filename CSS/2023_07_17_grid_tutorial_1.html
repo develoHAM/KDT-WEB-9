@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS grid 실습1</title>
+
+    <style>
+        .container {
+            height: 100vh;
+            font-style: italic;
+            text-align: center;
+            line-height: 100px;
+            display: grid;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-columns: repeat(6, 1fr);
+        }
+        .item {
+            width: auto;
+            height: auto;
+        }
+        .red {
+            background-color: #f94144;
+            grid-column: auto / span 6;
+        }
+        .orange {
+            background-color: #F3722C;
+            grid-row: auto / span 2;
+            height: auto;
+            line-height: 200px;
+        }
+        .yellow {
+            background-color: #F9C74F;
+            grid-column: auto / span 4;
+        }
+        .mint {
+            background-color: #43AA8B;
+            grid-row: auto / span 2;
+            height: auto;
+            line-height: 200px;
+        }
+        .tangerine {
+            background-color: #F8961E;
+            grid-column: auto / span 2;
+        }
+        .green {
+            background-color: #90BE6D;
+            grid-column: auto / span 2;
+        }
+        .blue {
+            background-color: #4444FF;
+            grid-column: auto / span 6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item red">#F94144</div>
+        <div class="item orange">#F3722C</div>
+        <div class="item yellow">#F9C74F</div>
+        <div class="item mint">#43AA8B</div>
+        <div class="item tangerine">#F8961E</div>
+        <div class="item green">#90BE6D</div>
+        <div class="item blue">#4444FF</div>
+    </div>
+</body>
+</html>

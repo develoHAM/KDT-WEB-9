@@ -1,0 +1,89 @@
+
+
+.container {
+    display: grid;
+    height: 500px;
+    /* minmax(최소, 최대) */
+    /* grid-template-columns: repeat(3, minmax(100px, auto)); */
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+    /* grid-template-rows: repeat(3, 200px); */
+    /* row-gap: 20px;
+    column-gap: 20px; */
+    /* gap: 20px 10px; */
+    /* gap: 20px; */
+    /* justify-items: center;
+    align-items: center; */
+    /* place-items: center; */
+    /* place-items: end; */
+    /* ~~~-items : item 요소(자식 요소)가 존재할 수 있는 영역 내에서 정렬 */
+
+    /* justify-content: center;
+    align-content: center; */
+    /* place-content: center; */
+    /* ????-content : container 영역 내에서 부모 요소 자체를 정렬 */
+
+    grid-template-areas:
+    'header header .'
+    'nav main aside'
+    'footer footer footer';
+}
+
+.item {
+    /* width: 100px;
+    height: 100px; */
+}
+
+.red {
+    grid-area: header;
+    /* order: 1; */
+    background-color: red;
+    /* grid-column: 1 / span 3; */
+    /* place-self: center; */
+    /* grid-column: 1 / 4; */
+    /* grid-column-start: 1; */
+    /* grid-column-end: 4; */
+    /* grid-column: auto / span 3; */
+}
+
+.orange {
+    grid-area: nav;
+    /* order: 2; */
+    background-color: orange;
+    /* grid-row: 2 / 4; */
+    /* grid-row: auto / span 2; */
+    /* place-self: center; */
+}
+
+.yellow {
+    grid-area: main;
+    /* order: 3; */
+    background-color: yellow;
+    /* justify-self: center; */
+    /* align-self: center; */
+    /* place-self: center; */
+}
+
+.green {
+    grid-area: aside;
+    /* width: 500px; */
+    /* order: 4; */
+    background-color: green;
+    /* z-index: 1; */
+}
+
+.blue {
+    grid-area: footer;
+    /* order: 5; */
+    background-color: blue;
+}
+
+.navy {
+    /* order: 6; */
+    background-color: navy;
+}
+
+.purple {
+    /* order: 7; */
+    background-color: purple;
+}
