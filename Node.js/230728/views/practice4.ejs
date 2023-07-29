@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>실습 4 웹사이트</h1>
+   <% for (let i = 0; i < pageLink.length; i++) { %>
+        <a href="<%= pageLink[i].link %>" target="_blank"><%= pageLink[i].name %> <img src="<%= pageLink[i].img %>" style="width: 100px; height: 100px;"/> </a>
+  <%  } %>
+</body>
+</html>

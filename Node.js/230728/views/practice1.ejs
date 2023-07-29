@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/practice1.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class= <%= caterpillar %>>
+        <div class="eye">
+            <div class="white"></div>
+            <div class="black"></div>
+        </div>
+
+    <% for (let i = 1; i < 6; i ++) { %>
+        <div id = <%=i %> class="body"></div>
+    <% } %>
+
+    </div>
+    <img src="/img/pngwing.com.png" alt="grass" class="grass"/>
+    <script>
+        let arr = ['one', 'two', 'three', 'four', 'five'];
+
+        for (let i = 1; i < arr.length + 1; i++) {
+            $(`#${i}`).addClass(`${arr[i-1]}`)
+        }
+        
+    </script>
+</body>
+</html>

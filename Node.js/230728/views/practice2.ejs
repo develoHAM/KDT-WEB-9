@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/practice1.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <p id="title">과일을 골라볼께요</p>
+    </div>
+    <!-- <button type="button" id="apple" onclick="apple()">사과</button>
+    <button type="button" id="banana" onclick="banana()">바나나</button>
+    <button type="button" id="grape" onclick="grape()">포도</button>
+    <button type="button" id="peach" onclick="peach()">복숭아</button> -->
+    
+    <!-- <button type="button" id="apple" onclick="changePicture('apple')">사과</button>
+    <button type="button" id="banana" onclick="changePicture('banana')">바나나</button>
+    <button type="button" id="grape" onclick="changePicture('grape')">포도</button>
+    <button type="button" id="peach" onclick="changePicture('peach')">복숭아</button> -->
+    
+    <% for (let i = 0; i < 4; i++) { %>
+        <button type="button" id= <%= fruits[i] %> onclick="changePicture('<%= fruits[i] %>')"><%= fruitName[i]%></button>
+    <% } %>
+
+    
+    <script>
+
+        function changePicture(fruit) { 
+
+            $('.container').children().remove(); 
+
+            switch (fruit) {
+                case 'apple': 
+                    fruit = '/img/apple.png';
+                    break;
+                case 'banana':
+                    fruit = '/img/banana.jpg';
+                    break;
+                case 'grape':
+                    fruit = '/img/grape.jpg';
+                    break;
+                case 'peach':
+                    fruit = '/img/peach.jpg';
+                    break;
+            }
+            $('.container').append(`<img src=${fruit} width="200" />`);
+            
+        }
+
+        function apple() {
+            $('.container').children().remove();
+            $('.container').append(`<img src='/img/apple.png' width="200" />`);
+        }
+        function banana() {
+            $('.container').children().remove();
+            $('.container').append(`<img src='/img/banana.jpg' width="200" />`);
+        }
+        function grape() {
+            $('.container').children().remove();
+            $('.container').append(`<img src='/img/grape.jpg' width="200"/>`);
+        }
+        function peach() {
+            $('.container').children().remove();
+            $('.container').append(`<img src='/img/peach.jpg' width="200" />`);
+        }
+
+    </script>
+</body>
+</html>
