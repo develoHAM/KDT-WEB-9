@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습 3</title>
+</head>
+
+<body>
+    <script>
+        //callback hell 예시. 지양해야함
+
+        // setTimeout(function() {
+        //     document.body.style.backgroundColor = 'red';
+        //     setTimeout(function() {
+        //         document.body.style.backgroundColor = 'orange';
+        //         setTimeout(function() {
+        //             document.body.style.backgroundColor = 'yellow';
+        //             setTimeout(function() {
+        //                 document.body.style.backgroundColor = 'green';
+        //                 setTimeout(function() {
+        //                     document.body.style.backgroundColor = 'blue';
+        //                 }, 1000);
+        //             }, 1000);
+        //         }, 1000);
+        //     }, 1000);
+        // }, 1000);
+
+        function red() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor = 'red';
+                    resolve();
+                }, 1000)
+            })
+        }
+        function orange() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor = 'orange';
+                    resolve();
+                }, 1000);
+            });
+        };
+        function yellow() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor = 'yellow';
+                    resolve();
+                }, 1000);
+            });
+        };
+        function green() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor = 'green';
+                    resolve();
+                }, 1000);
+            });
+        };
+        function blue() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor = 'blue';
+                    resolve();
+                }, 1000);
+            });
+        };
+
+
+        // async await 사용
+        // async function exec() {
+        //     await red();
+        //     await orange();
+        //     await yellow();
+        //     await green();
+        //     await blue();
+        // }
+        // exec();
+
+        // promise 체이닝
+        // red()
+        //     .then(() => {
+        //         return orange();
+        //     }).then(() => {
+        //         return yellow();
+        //     }).then(() => {
+        //         return green();
+        //     }).then(() => {
+        //         return blue();
+        //     })
+
+        // 배열 사용
+        // let arr = ['red', 'orange', 'yellow', 'green', 'blue'];
+        // function changeColor(color) {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve(document.body.style.backgroundColor = color);
+        //         }, 1000)
+        //     })
+        // }
+
+        // async function exec() {
+        //     for (let i = 0; i < arr.length; i++) {
+        //         await changeColor(arr[i]);
+        //     }
+        // }
+        // exec();
+
+        //----실습 풀이: promise로 배경색 변경하기
+        function changeBgColor(newColor, delay) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor = newColor;
+                    resolve();
+                }, delay)
+            })
+        }
+        //실행
+
+        changeBgColor('red', 1000).then(() => {
+            return changeBgColor('orange', 2000);
+        }).then(() => {
+            return changeBgColor('yellow', 3000);
+        }).then(() => {
+            return changeBgColor('green', 4000);
+        }).then(() => {
+            return changeBgColor('blue', 5000);
+        })
+
+        // async/await
+        async function exec() {
+            await changeBgColor('red', 1000)
+            await changeBgColor('orange', 2000);
+            await changeBgColor('yellow', 3000);
+            await changeBgColor('green', 4000);
+            await changeBgColor('blue', 5000);
+        }
+
+    </script>
+</body>
+
+</html>

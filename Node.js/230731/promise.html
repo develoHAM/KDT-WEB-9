@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise 객체</title>
+</head>
+<body>
+    <!-- promise 객체 : 콜백 지옥을 해결해줌 -->
+    <script>
+        // promise 개념
+
+        // function promise1(flag) {
+        //     return new Promise( function(resolve, reject) { 
+        //         if(flag) {
+        //             resolve(`promise상태는 fulfilled!, then으로 연결됩니다. \n 이때의 flag가 true입니다.`);
+        //         } else {
+        //             reject(`promise상태는 rejected!! catch로 연결됩니다. \n 이때의 flag가 false입니다.`);
+        //         }
+        //     });
+        // }
+
+        // promise1(false)
+        //     .then(function (result) {
+        //         console.log(result);
+        //     }) .catch(function(err){
+        //         console.log(err);
+        //     });
+
+        // promise 사용
+
+        function goMart() {
+            console.log('마트에가서 어떤 음료 살지 고민한다');
+        }
+        function pickDrink() {
+            return new Promise( function(resolve, reject) {
+                setTimeout( function() {
+                    console.log('고민 끝');
+                    product = '제로 콜라';
+                    price = 2000;
+                    resolve();
+                }, 2000);
+            });
+        }
+
+        function pay() {
+            console.log(`상품명: ${product}, 가격: ${price}`);
+        }
+
+        // let product;
+        // let price;
+        // goMart();
+        // pickDrink().then(pay); // 함수 바로 실행
+        // pickDrink().then(()=>{
+        //     console.log(`상품명: ${product}, 가격: ${price}`); // 익명 함수로 실행
+        // });
+        
+        //----async, await 이용
+
+        let product;
+        let price;
+        async function exec() {
+            goMart();
+            await pickDrink();
+            pay();
+        }
+        exec();
+    </script>
+</body>
+</html>

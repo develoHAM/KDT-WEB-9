@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조분해</title>
+</head>
+<body>
+    <script>
+        //배열 구조 분해
+        const lists = ['apple', 'grape'];
+
+        // 기본 방식
+        console.log(lists[0],lists[1]);
+
+        // 구조 분해
+        [item1, item2, item3 = 'peach'] = lists
+        // console.log('item1: ', item1, 'item2: ', item2);
+        item1 = 'peach';
+        // console.log(item1, item3)
+        // 교환
+        let x = 1, 
+              y = 3;
+        [x, y] = [y, x];
+        // console.log(x, y);
+
+        // 객체 구조 분해
+
+        const Person = {
+            //key: value
+            name: 'daewon' , 
+            age: 26 , 
+            gender: 'M' , 
+            friends: ['alex', 'kevin'] , 
+            hello: function() {
+                console.log('hello');
+            },
+        };
+
+        const persons = [ {}, {}, {}, {}]
+    </script>
+</body>
+</html>
