@@ -24,9 +24,8 @@
         [x, y] = [y, x];
         // console.log(x, y);
 
-        // 객체 구조 분해
-
-        const Person = {
+        // 객체 
+        const person = {
             //key: value
             name: 'daewon' , 
             age: 26 , 
@@ -35,9 +34,23 @@
             hello: function() {
                 console.log('hello');
             },
+            "kdt-9":'CodingOn KDT 9기',
         };
+        console.log(person.name)
+        person.age = 30;
+        console.log(person.age);
+        console.log(person.friends[0]);
+        person.hello();
+        console.log(person['name']);
+        console.log(person['kdt-9']);
+        // person['city'] = 'Seoul';
+        person.city = 'Seoul';
+        console.log(person);
+        // const persons = [ {}, {}, {}, {}] // 여러 객체를 배열화 할 수 있다
 
-        const persons = [ {}, {}, {}, {}]
+        // 객체 구조분해
+        const {name, city, gender, key = 'Hi', age: myAge} = person;
+        console.log(name, city, gender, key, myAge);
     </script>
 </body>
 </html>

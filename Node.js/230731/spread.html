@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // spread 연산자
+        const a = [1, 2, 3];
+        const b = [4, 5];
+
+        // 기존방식
+        const concat = a.concat(b);
+        console.log('concat', concat);
+
+        // spread 방식
+        const spread = [...a, ...b];
+        console.log('spread', spread);
+
+        // 객체도 spread 연산자 쓸 수 있다
+        // const person = {
+        //     name: 'daewon',
+        //     age: 26, 
+        // };
+        // console.log({...person});
+
+        const c = "hello";
+        const d = [...c];
+        console.log([...c]);
+        console.log(d);
+
+        //rest 파
+        function get(a, b, ...rest) {
+            console.log(a, b, rest)
+        }
+        get(10, 20, 30, 40, 50, 60, 70, 80, 90);
+
+        //class
+
+        class Cat {
+            //생성자
+            constructor( name, age) {
+                //속성
+                this.name = name;
+                this.age = age;
+            }
+            //메소드
+            mew() {
+                console.log('야옹');
+            }
+            eat() {
+                console.log('먹이를 먹습니다');
+            }
+        }
+        const cat1 = new Cat('나비', 1);
+        const cat2 = new Cat('냥이', 2);
+
+        cat1.mew();
+        console.log(cat2.age);
+        
+    </script>
+</body>
+
+</html>
