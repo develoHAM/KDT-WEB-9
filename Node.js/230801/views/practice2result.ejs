@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: violet;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <div><span><%= userInfo.name %></span>의 정보</div>
+    <div>성별은 <span><%= userInfo.gender %></span> 입니다.</div>
+    <div>생년월일은 <span><%= userInfo.DOBy %>.<%= userInfo.DOBm %>.<%= userInfo.DOBd %></span> 입니다.</div>
+    <div>관심사는 <span><%= userInfo.interests %></span> 입니다.</div>
+    <div>참고한 <span><a href=<%= userInfo.url %> target="_blank">링크</a></span> 입니다.</div>
+    <div>좋아하는 색깔은 <span><%= userInfo.color %></span> 입니다.</div>
+
+    <br />
+    <br />
+    <a href="/practice2">홈으로 이동</a>
+</body>
+</html>

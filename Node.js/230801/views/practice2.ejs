@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <form action="/practice2result" method="POST">
+
+        <label for="name">이름</label>
+        <input type="text" name="name" placeholder="이름"/>
+
+        <br />
+
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" name="gender" id="male" value="남자" required/>
+            <label for="male">남자</label>
+            <input type="radio" name="gender" id="female" value="여자" required/>
+            <label for="female">여자</label>
+        </fieldset>
+        <fieldset>
+            <legend>생년월일</legend>
+
+            <select name="DOBy" id="year" required>
+
+                <% for (let i = 1900; i <= 2023; i++ ) { %>
+                    <option value=<%= i %>><%= i %></option>
+             <%   } %>
+            </select>
+            <label for="year">년</label>
+
+            <select name="DOBm" id="month" required>
+                <% for (let i = 1; i <= 12; i++ ) { %>
+                    <option value=<%= i %>><%= i %></option>
+             <%   } %>
+            </select>
+            <label for="month">월</label>
+
+
+
+            <select name="DOBd" id="date" required>
+                <% for (let i = 1; i <= 31; i++ ) { %>
+                    <option value=<%= i %>><%= i %></option>
+             <%   } %>
+            </select>
+            <label for="month">일</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>관심사</legend>
+            <input type="checkbox" id="travel" name="interests" value="여행" />
+            <label for="travel">여행</label> 
+            <input type="checkbox" id="fashion" name="interests" value="패션" />
+            <label for="fashion">패션</label>
+            <input type="checkbox" id="food" name="interests" value="음식" />
+            <label for="food">음식</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>input태그 type들을 참고한 링크</legend>
+            <input type="url" name="url" />
+        </fieldset>
+
+        <fieldset>
+            <legend>좋아하는 색깔</legend>
+            <input type="color" name="color" />
+        </fieldset>
+
+        <button type="submit">제출</button>
+    </form>
+</body>
+</html>
