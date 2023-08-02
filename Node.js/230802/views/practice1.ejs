@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>실습1</title>
+</head>
+
+<body>
+    <h1>실습1<h1>
+                <form name="register">
+
+                    <label for="name">이름</label>
+                    <input type="text" name="name" placeholder="이름" />
+
+                    <br />
+
+                    <fieldset>
+                        <legend>성별</legend>
+                        <input type="radio" name="gender" id="male" value="남자" required />
+                        <label for="male">남자</label>
+                        <input type="radio" name="gender" id="female" value="여자" required />
+                        <label for="female">여자</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>생년월일</legend>
+
+                        <select name="DOBy" id="year" required>
+
+                            <%for (let i=1930; i <=2010; i++) {%>
+                                <option value=<%=i %>><%= i %>
+                                </option>
+                                <%}%>
+
+                        </select>
+                        <label for="year">년</label>
+
+                        <select name="DOBm" id="month" required>
+
+                            <%for (let i=1; i <=12; i++) {%>
+                                <option value=<%=i %>><%= i %>
+                                </option>
+                                <%}%>
+
+                        </select>
+                        <label for="month">월</label>
+
+                        <select name="DOBd" id="date" required>
+
+                            <%for (let i=1; i <=31; i++) {%>
+                                <option value=<%=i %>><%= i %>
+                                </option>
+                                <%}%>
+
+                        </select>
+                        <label for="month">일</label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>관심사</legend>
+                        <input type="checkbox" id="travel" name="interests" value="여행" class="interests" />
+                        <label for="travel">여행</label>
+                        <input type="checkbox" id="fashion" name="interests" value="패션" class="interests" />
+                        <label for="fashion">패션</label>
+                        <input type="checkbox" id="food" name="interests" value="음식" class="interests" />
+                        <label for="food">음식</label>
+                    </fieldset>
+
+                    <button type="button" onclick="getAxios()">제출</button>
+                </form>
+                <ul class="result">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <script>
+                    const resultBox = document.querySelector('.result');
+
+                    function getAxios() {
+                        console.log('getAxios');
+                        // const checkedInterestsValueArray = [];
+                        // const checkedBoxes = document.querySelectorAll('.interests:checked')
+                        // for (let i = 0; i < checkedBoxes.length; i++) {
+                        //     checkedInterestsValueArray.push(checkedBoxes[i].value);
+                        // }
+                        let arr = [];
+                        console.log($("input[name='interests']:checked").length);
+                        $("input[name='interests']:checked").each(function() {
+                            arr.push($(this).val());
+                        })
+                        console.log(arr)
+                        const form = document.forms['register'];
+                        const data = {
+                            name: form.name.value,
+                            gender: form.gender.value,
+                            DOBy: form.DOBy.value,
+                            DOBm: form.DOBm.value,
+                            DOBd: form.DOBd.value,
+                            interests: arr
+                        }
+                        console.log(data);
+                        axios({
+                            method: 'GET',
+                            url: '/practice1result',
+                            params: data,
+                        }).then((res) => {
+                            console.log('res', res)
+                            console.log('res의data', res.data)
+
+                            $('li:nth-child(1)').text(`이름: ${res.data.name}`);
+                            $('li:nth-child(2)').text(`성별: ${res.data.gender}`)
+                            $('li:nth-child(3)').text(`생일: ${res.data.DOBy}년 ${res.data.DOBm}월 ${res.data.DOBd}일`)
+                            $('li:nth-child(4)').text(`관심사: ${res.data.interests}`)
+                        });
+                    }
+
+                </script>
+</body>
+
+</html>
