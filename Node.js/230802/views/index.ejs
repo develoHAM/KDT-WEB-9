@@ -142,6 +142,8 @@
                 name: form.name.value,
                 gender: form.gender.value,
             };
+            console.log(JSON.stringify(data))
+
             fetch('/fetch', {
                 method: 'POST',
                 headers: {
@@ -151,8 +153,9 @@
                 // JSON.stringify(): 자바스크립트 객체를 JSON 텍스트로 변환
                 // JSON.parse(): JSON형식의 텍스트를 자바스크립트 객체로 변환
             }).then((res) => {
-                console.log('res', 'res')
+                console.log('res', res)
                 return res.json();
+                // return res.text();
             }).then((data) => {
                 console.log('data', data);
                 resultBox.textContent = `POST /fetch 요청완료 ${data.name}님은 ${data.gender}입니다.`;

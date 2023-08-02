@@ -45,6 +45,7 @@ app.get('/fetch', (req, res) => {
 
 app.post('/fetch', (req, res) => {
     console.log('back', req.body);
+    console.log(req.body)
     res.send(req.body);
 })
 
