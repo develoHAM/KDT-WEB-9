@@ -2,12 +2,8 @@ const express = require('express');
 const app = express();
 const PORT = 8000;
 
-//practice 2 variables
-const id = "codingOn";
-const pw = "1234";
-
 // body parser
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // view engine
@@ -64,17 +60,21 @@ app.get('/practice1result', (req, res) => {
     res.send(req.query)
 })
 
+// practice2
 app.get("/practice2", (req, res) => {
     res.render('practice2')
 })
 
 app.post('/practice2result', (req, res) => {
+    //practice 2 variables
+    const id = "codingOn";
+    const pw = "1234";
     console.log(req.body.id)
     console.log(req.body.pw)
     if (req.body.id == id && req.body.pw == pw) {
-        res.send(true);
+        res.send({result: true, userInfo: req.body});
     } else {
-        res.send(false);
+        res.send({result: false, userInfo: req.body});
     }
 })
 

@@ -42,9 +42,9 @@
                 url: '/practice2result',
                 data: account
             }).then((res) => {
-                if (res.data == true) {
+                if (res.data.result == true) {
                     resultBox.textContent = "로그인 성공!";
-                    resultBox.style.color = 'green';
+                    resultBox.style.color = 'blue';
                 } else {
                     resultBox.textContent = "로그인 실패ㅠㅠ";
                     resultBox.style.color = 'red';
