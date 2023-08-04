@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 1</title>
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>실습 1 : 동적 파일 업로드</h1>
+    <div>개인 정보</div>
+    <br />
+    <label for="id">아이디 : </label><input type="text" name="id" id="id" />
+    <br />
+    <label for="pw">비밀번호 : </label><input type="password" name="pw" id="pw" />
+    <br />
+    <label for="name">이름 : </label><input type="text" name="name" id="name" />
+    <br />
+    <label for="age"> 나이 : </label><input type="number" name="age" id="age" />
+    <br />
+    <label for="profilepic">프로필 사진 : </label><input type="file" id="profile-pic" />
+    <br />
+    <button type="button" onclick="resetButton()">리셋</button>
+    <button type="button" onclick="submitForm()">제출</button>
+    <div class="result"></div>
+
+    <script>
+        const accountFile = document.getElementById("profile-pic");
+        const resultBox = document.querySelector(".result");
+
+        function resetButton() {
+            document.getElementById("id").value = "";
+            document.getElementById("pw").value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("age").value = "";
+            accountFile.value = "";
+        }
+
+        function submitForm() {
+            console.log("file.files[0]", accountFile.files[0]);
+            const accountData = new FormData();
+            accountData.append("id", document.getElementById("id").value);
+            accountData.append("pw", document.getElementById("pw").value);
+            accountData.append("name", document.getElementById("name").value);
+            accountData.append("age", document.getElementById("age").value);
+            accountData.append("profile-pic", accountFile.files[0]);
+
+            axios({
+                method: "POST",
+                url: "/practice1server",
+                data: accountData,
+                headers: {
+                    "Content-Type": "multipart/form-data", // FormData 형식의 데이터를 요구한다. 따라서, new FormData(); 로 새로운 FormData를 선언 및 할당해줘야한다
+                },
+            }).then((res) => {
+                console.log("practice1server 에서 응답", res);
+                resultBox.innerHTML = `<div><img src=${res.data.path}></div>`;
+            });
+        }
+    </script>
+</body>
+
+</html>
