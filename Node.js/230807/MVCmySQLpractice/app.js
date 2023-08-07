@@ -68,7 +68,6 @@ app.patch('/visitor/edit', (req, res) => {
 app.delete('/visitor/delete', (req,res) => {
     const query = `DELETE FROM visitor WHERE id='${req.body.id}'`
     conn.query(query, (err, rows) => {
-        console.log('삭제했어요~')
     })
 })
 

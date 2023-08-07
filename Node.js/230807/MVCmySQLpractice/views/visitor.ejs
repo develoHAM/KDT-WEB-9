@@ -75,7 +75,15 @@
             })
         }
         function deleteComment() {
-            console.log(this.document.activeElement.id)
+            const elementID = (Number(this.document.activeElement.id.split("_")[1]))
+            document.getElementById(`tr_${elementID}`).remove()
+            axios({
+                method: 'delete',
+                url: '/visitor/delete',
+                data: {
+                    id: elementID
+                }
+            })
         }
     </script>
 
