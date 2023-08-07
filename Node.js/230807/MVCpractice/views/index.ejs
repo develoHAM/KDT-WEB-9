@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+    <title>실습2</title>
+</head>
+
+<body>
+    <form name="logIn">
+        <label for="userName">ID</label>
+        <input type="text" id="userName" name="id" />
+        <br />
+        <label for="password">Password</label>
+        <input type="password" id="password" name="pw" />
+        <br />
+        <button type="button" onclick="validateAccount()">로그인</button>
+        <div>id: codingOn</div>
+        <div>pw: 1234</div>
+        <div class="result"></div>
+    </form>
+
+    <script>
+        let resultBox = document.querySelector('.result')
+        function validateAccount() {
+            console.log('post 요청');
+            const form = document.forms['logIn'];
+            const account = {
+                id: form.id.value,
+                pw: form.pw.value
+            }
+            console.log(account)
+            axios({
+                method: 'POST',
+                url: '/practice2result',
+                data: account
+            }).then((res) => {
+                if (res.data.result == true) {
+                    resultBox.textContent = "로그인 성공!";
+                    resultBox.style.color = 'blue';
+                } else {
+                    resultBox.textContent = "로그인 실패ㅠㅠ";
+                    resultBox.style.color = 'red';
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

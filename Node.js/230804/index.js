@@ -37,6 +37,8 @@ const comments = [
     }
 ]
 
+// middleware 이기때문에 app.use로 대체가 가능, 다만 위에서부터 아래로 코드가 읽히기 때문에 get, post 구분해서 사용함
+
 app.get('/', (req, res) => {
     res.render('index');
 })
@@ -56,7 +58,7 @@ app.get('/comment/:id', (req, res) => {
 })
 
 // * : 맨마지막 선언
-app.get('*', (req, res) => {
+app.use('*', (req, res) => {
     res.render('404');
 })
 
