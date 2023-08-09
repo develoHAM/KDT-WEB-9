@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <a href="/user">HOME</a>
+    <h1>PROFILE</h1>
+    <br />
+    <form name="profile">
+        <fieldset>
+        <legend>회원 정보</legend>
+        <label for="id">아이디: </label>
+        <input type="text" name="id" id="id" value="<%= data.userid %>">
+        <br />
+        <br />
+        <label for="name">이름: </label>
+        <input type="text" name="name" id="name" value="<%= data.name %>">
+        <br />
+        <br />
+        <label for="pw">비밀번호: </label>
+        <input type="password" name="pw" id="pw" value="<%= data.pw %>">
+        <br />
+        <br />
+        </fieldset>
+    </form>
+    <br/>
+    <button type="button" onclick="updateAccount('<%= data.id %>')">수정</button>
+    <button type="button" onclick="deleteAccount('<%= data.id %>')">계정 삭제</button>
+    <br/>
+    <br/>
+    <div class="result"></div>
+
+    <script>      
+        function updateAccount(account) {
+            const form = document.forms['profile']
+            axios({
+                method: 'POST',
+                url: '/user/profile/edit',
+                data: {
+                    id: Number(account),
+                    userid: form.id.value,
+                    name: form.name.value,
+                    pw: form.pw.value
+                }
+            }).then((res) => {
+                if (res.data.result) {
+                    document.querySelector('.result').textContent = '회원정보 성공수정!'
+                }
+            })
+        }
+
+        function deleteAccount(account) {
+            axios({
+                method: 'POST',
+                url: '/user/profile/delete',
+                data: {
+                    id: Number(account)
+                }
+            }).then((res) => {
+                if (res.data.result) {
+                    window.location.href = "/user/signin";
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
