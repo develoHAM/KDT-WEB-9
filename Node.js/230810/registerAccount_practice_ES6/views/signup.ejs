@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <a href="/user">HOME</a>
+    <br />
+    <br />
+    <h1>회원가입</h1>
+    <br />
+    <form name="register-form">
+        <label for="userid">아이디: </label>
+        <input type="text" name="userid" id="userid">
+        <br />
+        <br />
+        <label for="name">이름: </label>
+        <input type="text" name="name" id="name">
+        <br />
+        <br />
+        <label for="pw">비밀번호: </label>
+        <input type="password" name="pw" id="pw">
+        <br />
+        <br />
+        <br />
+        <button type="button" onclick="registerAccount()">회원가입</button>
+    </form>
+    <div class="result"></div>
+    <script>
+        function registerAccount() {
+            console.log('회원가입 버튼 클릭')
+            const form = document.forms['register-form']
+            const resultBox = document.querySelector('.result')
+            axios ({
+                method: 'POST',
+                url: '/user/signup',
+                data: {
+                    userid: form.userid.value,
+                    name: form.name.value,
+                    pw: form.pw.value,
+                }
+            }).then((res) => {
+                console.log(res.data)
+                if (res.data.result) {
+                    alert('회원가입 되었습니다.')
+                    window.location.href = '/user'                    
+                } else {
+                    resultBox.style.color = 'red'
+                    resultBox.textContent = '이미 사용중인 아이디 입니다'
+                }
+            })
+        }
+    </script>
+</body>
+</html>

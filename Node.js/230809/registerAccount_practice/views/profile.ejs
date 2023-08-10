@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <a href="/user">HOME</a>
+    <h1>프로필 페이지</h1>
+    <form name="profile">
+        <label for="userid">아이디: </label>
+        <input type="text" name="userid" id="userid" value="<%= userdata[0].userid %>" readonly/>
+        <br />
+        <br />
+        <label for="name">이름: </label>
+        <input type="text" name="name" id="name" value="<%= userdata[0].name %>" />
+        <br />
+        <br />
+        <label for="pw">비밀번호: </label>
+        <input type="password" name="pw" id="pw" value="<%= userdata[0].pw %>" />
+        <br />
+        <br />
+        <button type="button" onclick="editAccount('<%= userdata[0].id %>')">정보 수정</button>
+        <button type="button" onclick="deleteAccount('<%= userdata[0].id %>')">계정 삭제</button>
+    </form>
+    <script>
+        function editAccount(id) {
+            const form = document.forms['profile']
+            if (!form.name.value || !form.pw.value) {
+                alert('빈칸이 있습니다');
+                return;
+            }
+            axios({
+                method: 'PATCH',
+                url: '/user/profile/edit',
+                data: {
+                    id: Number(id),
+                    userid: form.userid.value,
+                    name: form.name.value,
+                    pw: form.pw.value
+                }
+            }).then((res) => {
+                if (res.data.result) {
+                    alert('회원정보 수정 성공!')
+                }
+            })
+        }
+        function deleteAccount(id) {
+            const form = document.forms['profile']
+            if (!confirm('삭제하시겠습니까?')) {
+                console.log('삭제ㄴㄴ')
+                return;
+            }
+            axios({
+                method: 'DELETE',
+                url: '/user/profile/delete',
+                data: {
+                    id: Number(id)
+                }
+            }).then((res) => {
+                if (res.data.result) {
+                    alert('계정이 삭제되었습니다.')
+                    window.location.href = ('/user')
+                }
+            })
+        }
+    </script>
+</body>
+</html>

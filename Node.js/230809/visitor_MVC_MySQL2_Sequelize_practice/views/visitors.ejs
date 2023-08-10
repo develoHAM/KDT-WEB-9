@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <a href="/">HOME</a>
+    <br />
+    <br />
+    <form name="register-form">
+        <label for="name">이름</label>
+        <input type="text" id="name">
+        <br>
+        <br>
+        <label for="comment">내용</label>
+        <input type="text" id="comment">
+        <br>
+        <br>
+        <button type="button" onclick="register()">등록</button>
+        <br>
+        <br>
+    </form>
+
+
+    <table border="1" cellspacing="0">
+    <thead>
+        <tr>
+            <th>아이디</th>
+            <th>이름</th>
+            <th>코멘트</th>
+            <th>수정</th>
+            <th>삭제</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <!-- for (let i = 0; i < data.length; i++ ) {
+
+            } -->
+        </tr>
+    </tbody>
+    
+    </table>
+
+    <script>
+        function register() {
+            const form = document.forms['register-form'];
+            axios({
+                
+            })
+        }
+    </script>
+</body>
+</html>
