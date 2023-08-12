@@ -29,43 +29,69 @@ const conn = mysql.createPool({
 // })
 
 
-export const Signup = (data, callback) => {
-    const query = `INSERT INTO newuser (userid, name, pw) VALUES ('${data.userid}', '${data.name}', '${data.pw}')`
-    conn.query(query, (err, rows) => {
-        if (err) {
-            console.log(err);
-            callback({result: false})
-            return;
-        } else {
-            callback({result: true})
-        }
-    })
+export const Signup = async (data) => {
+    // const query = `INSERT INTO newuser (userid, name, pw) VALUES ('${data.userid}', '${data.name}', '${data.pw}')`
+    // conn.query(query, (err, rows) => {
+    //     if (err) {
+    //         console.log(err);
+    //         return ({result: false})
+    //     } else {
+    //         return({result: true})
+    //     }
+    // })
+    try {
+        const query = `INSERT INTO newuser (userid, name, pw) VALUES (?, ?, ?)`;
+        const rows = await conn.query(query, [data.userid, data.name, data.pw]);
+        console.log('rowssssssssss',rows)
+        return ({result: true});
+    } catch (error) {
+        console.log(error)
+        return ({result: false});
+    }
 }
 
-export const Signin = (data, callback) => {
-    const query = `SELECT * FROM newuser WHERE userid='${data.userid}' AND pw='${data.pw}'`
-    conn.query(query, (err, rows) => {
-        if (err) {
-            console.log(err);
-            callback({result: false})
-        } else {
-            console.log(rows)
-            callback({result: true, userdata: rows})
-        }
-    })
+export const Signin = async (data) => {
+    // const query = `SELECT * FROM newuser WHERE userid='${data.userid}' AND pw='${data.pw}'`
+    // conn.query(query, (err, rows) => {
+    //     if (err) {
+    //         console.log(err);
+    //         callback({result: false})
+    //     } else {
+    //         console.log(rows)
+    //         callback({result: true, userdata: rows})
+    //     }
+    // })
+    try {
+        const query = `SELECT * FROM newuser WHERE userid= ? AND pw= ?`
+        const [rows] = await conn.query(query, [data.userid, data.pw])
+        console.log(rows)
+        return({result: true, userdata: rows})
+    } catch (error) {
+        console.log(error)
+        return({result: false})
+    }
 }
 
-export const renderProfile = (data, callback) => {
-    const query = `SELECT * FROM newuser WHERE id=${data.id}`
-    conn.query(query, (err, rows) => {
-        if (err) {
-            console.log(err);
-            callback({result: false})
-        } else {
-            console.log('profile', rows)
-            callback({result: true, userdata: rows})
-        }
-    })
+export const renderProfile = async (data) => {
+    // const query = `SELECT * FROM newuser WHERE id=${data.id}`
+    // conn.query(query, (err, rows) => {
+    //     if (err) {
+    //         console.log(err);
+    //         callback({result: false})
+    //     } else {
+    //         console.log('profile', rows)
+    //         callback({result: true, userdata: rows})
+    //     }
+    // })
+    try {
+        const query = `SELECT * FROM newuser WHERE id= ?`
+        const rows = conn.query(query, [data.id])
+        console.log('renderProfile ROWS',rows)
+        return({result: true, userdata: rows})
+    } catch (error) {
+        console.log(error)
+        return({result: false})
+    }
 }
 
 export const editProfile = (data, callback) => {

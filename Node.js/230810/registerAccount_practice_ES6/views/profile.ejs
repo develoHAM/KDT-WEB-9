@@ -13,19 +13,19 @@
     <h1>프로필 페이지</h1>
     <form name="profile">
         <label for="userid">아이디: </label>
-        <input type="text" name="userid" id="userid" value="<%= userdata[0].userid %>" readonly/>
+        <input type="text" name="userid" id="userid" value="<%= userdata.userid %>" readonly/>
         <br />
         <br />
         <label for="name">이름: </label>
-        <input type="text" name="name" id="name" value="<%= userdata[0].name %>" />
+        <input type="text" name="name" id="name" value="<%= userdata.name %>" />
         <br />
         <br />
         <label for="pw">비밀번호: </label>
-        <input type="password" name="pw" id="pw" value="<%= userdata[0].pw %>" />
+        <input type="password" name="pw" id="pw" value="<%= userdata.pw %>" />
         <br />
         <br />
-        <button type="button" onclick="editAccount('<%= userdata[0].id %>')">정보 수정</button>
-        <button type="button" onclick="deleteAccount('<%= userdata[0].id %>')">계정 삭제</button>
+        <button type="button" onclick="editAccount('<%= userdata.id %>')">정보 수정</button>
+        <button type="button" onclick="deleteAccount('<%= userdata.id %>')">계정 삭제</button>
     </form>
     <script>
         function editAccount(id) {
