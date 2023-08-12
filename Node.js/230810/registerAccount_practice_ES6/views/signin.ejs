@@ -41,6 +41,8 @@
                     pw: signinForm.pw.value,
                 }
             }).then((res) => {
+                console.log(res)
+
                 if (res.data.result) {
                     alert('로그인 성공!')
                     document.getElementById('id').value = res.data.userdata[0].id

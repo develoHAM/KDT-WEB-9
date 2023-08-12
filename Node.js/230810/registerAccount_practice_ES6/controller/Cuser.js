@@ -37,6 +37,7 @@ export const Signin = async (req, res) => {
     // })
     try {
         const result = await model.Signin(req.body)
+        console.log(result)
         res.send(result)
     } catch (error) {
         console.log('signin', error)
@@ -52,6 +53,7 @@ export const renderProfile = async (req, res) => {
     // })
     try {
         const result = await model.renderProfile(req.body)
+        console.log('renderProfile', result)
         res.render('profile', result)
     } catch (error) {
         console.log('render profile error', error)
@@ -59,17 +61,31 @@ export const renderProfile = async (req, res) => {
 }
 
 // 프로필 수정 기능 구현 및 export
-export const editProfile = (req, res) => {
+export const editProfile = async(req, res) => {
+    // console.log('editProfile, req.body = ', req.body)
+    // model.editProfile(req.body, (result) => {
+    //     res.send(result)
+    // })
+    try {
     console.log('editProfile, req.body = ', req.body)
-    model.editProfile(req.body, (result) => {
+    const result = await model.editProfile(req.body)
+        console.log('editProfile RESULT', result)
         res.send(result)
-    })
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 // 프로필 삭제 기능 구현 및 export
-export const deleteProfile = (req, res) => {
-    console.log('deleteProfile, req.body = ', req.body)
-    model.deleteProfile(req.body, (result) => {
+export const deleteProfile = async(req, res) => {
+    // console.log('deleteProfile, req.body = ', req.body)
+    // model.deleteProfile(req.body, (result) => {
+    //     res.send(result)
+    // })
+    try {
+        const result = await model.deleteProfile(req.body)
         res.send(result)
-    })
+    } catch (error) {
+        console.log(error)
+    }
 }

@@ -40,6 +40,9 @@ export const Signup = async (data) => {
     //     }
     // })
     try {
+        // const query1 = `SELECT * FROM newuser WHERE userid= ?`
+        // const [rows] = await conn.query(query1, [data.userid]);
+        // console.log(rows[0].name)
         const query = `INSERT INTO newuser (userid, name, pw) VALUES (?, ?, ?)`;
         const rows = await conn.query(query, [data.userid, data.name, data.pw]);
         console.log('rowssssssssss',rows)
@@ -64,11 +67,14 @@ export const Signin = async (data) => {
     try {
         const query = `SELECT * FROM newuser WHERE userid= ? AND pw= ?`
         const [rows] = await conn.query(query, [data.userid, data.pw])
-        console.log(rows)
-        return({result: true, userdata: rows})
+        console.log('WHEREEEEEEEE', rows)
+        if (rows.length > 0) {
+            return({result: true, userdata: rows})
+        } else {
+            return({result: false})
+        }
     } catch (error) {
         console.log(error)
-        return({result: false})
     }
 }
 
@@ -85,7 +91,7 @@ export const renderProfile = async (data) => {
     // })
     try {
         const query = `SELECT * FROM newuser WHERE id= ?`
-        const rows = conn.query(query, [data.id])
+        const [rows] = await conn.query(query, [data.id])
         console.log('renderProfile ROWS',rows)
         return({result: true, userdata: rows})
     } catch (error) {
@@ -94,28 +100,43 @@ export const renderProfile = async (data) => {
     }
 }
 
-export const editProfile = (data, callback) => {
-    const query = `UPDATE newuser SET userid='${data.userid}', name='${data.name}', pw='${data.pw}' WHERE id=${data.id}`
-    conn.query(query, (err, rows) => {
-        if(err) {
-            console.log(err);
-            callback({result: false})
-        } else {
-            console.log('edit Profile ROWS', rows)
-            callback({result: true})
-        }
-    })
+export const editProfile = async (data) => {
+    // const query = `UPDATE newuser SET userid='${data.userid}', name='${data.name}', pw='${data.pw}' WHERE id=${data.id}`
+    // conn.query(query, (err, rows) => {
+    //     if(err) {
+    //         console.log(err);
+    //         callback({result: false})
+    //     } else {
+    //         console.log('edit Profile ROWS', rows)
+    //         callback({result: true})
+    //     }
+    // })
+    try {
+        const query = `UPDATE newuser SET userid= ?, name= ?, pw= ? WHERE id= ?`
+        const rows = await conn.query(query, [data.userid, data.name, data.pw, data.id])
+        console.log('editProfileeeeeeeeeeeeee', rows)
+        return({result: true})
+    } catch (error) {
+        return({result: false})
+    }
 }
 
-export const deleteProfile = (data, callback) => {
-    const query = `DELETE FROM newuser WHERE id=${data.id}`
-    conn.query(query, (err, rows) => {
-        if(err) {
-            console.log(err)
-            callback({result: false})
-        } else {
-            console.log('delete Profile ROWS', rows)
-            callback({result: true})
-        }
-    })
+export const deleteProfile = async(data) => {
+    // const query = `DELETE FROM newuser WHERE id=${data.id}`
+    // conn.query(query, (err, rows) => {
+    //     if(err) {
+    //         console.log(err)
+    //         callback({result: false})
+    //     } else {
+    //         console.log('delete Profile ROWS', rows)
+    //         callback({result: true})
+    //     }
+    // })
+    try {
+        const query = `DELETE FROM newuser WHERE id= ?`
+        let rows = conn.query(query, [data.id])
+        return({result: true})
+    } catch (error) {
+        return({result: false})
+    }
 }
