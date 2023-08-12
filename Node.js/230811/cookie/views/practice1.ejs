@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>실습1</h1>
+    <div class="modal" tabindex="-1" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">안내</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>실습1</p>
+                </div>
+                <div class="modal-footer">
+                    <input type="checkbox" id="btn">
+                    <label for="btn">오늘 그만 보기</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            if (document.cookie == "myCookie=stopShow") {
+                $("#myModal").modal('hide');
+            } else {
+                $("#myModal").modal('show');
+            }
+        });
+
+        let data;
+        $('#btn').change(function () {
+            data = $(this).is(":checked")
+            console.log(data)
+        })
+
+        $('#close').click(() => {
+            if (data) {
+                alert('오늘 그만 보기 쿠키설정 완료')
+            }
+            axios({
+                method: 'POST',
+                url: '/',
+                data: {
+                    result: data
+                },
+            }).then((res) => {
+                console.log(res)
+            })
+        })
+    </script>
+</body>
+
+</html>

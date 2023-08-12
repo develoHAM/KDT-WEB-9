@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <button id="register">회원가입</button>
+    <button type="button" onclick="login()" id="login">로그인</button>
+    <script>
+        function login() {
+            document.getElementById('register').hidden = true
+            document.getElementById('login').hidden = true
+            axios({
+                method: 'POST',
+                url: '/',
+                data: {
+                    login: true
+                }
+            }).then((res) => {
+                window.location.reload()                
+            })
+        }
+    </script>
+</body>
+
+</html>
