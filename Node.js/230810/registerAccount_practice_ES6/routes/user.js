@@ -30,3 +30,4 @@ router.delete('/profile/delete', controller.deleteProfile)
 // 정의된 router 함수들을 모두 export
 // module.exports = router;
 export default router;
+

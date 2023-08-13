@@ -1,6 +1,5 @@
 // model 모듈 불러오기
 const model = require('../model/User.js')
-
 // 메인페이지, 회원가입페이지, 로그인 페이지 렌더
 module.exports.index = (req, res) => {
     res.render('index')
@@ -11,7 +10,6 @@ module.exports.renderSignup = (req, res) => {
 module.exports.renderSignin = (req, res) => {
     res.render('signin')
 }
-
 // 회원가입 기능 구현 및 export
 module.exports.Signup = (req, res) => {
     console.log(req.body)
@@ -19,7 +17,6 @@ module.exports.Signup = (req, res) => {
         res.send(result)
     })
 }
-
 // 로그인 기능 구현 및 export
 module.exports.Signin = (req, res) => {
     console.log('Signin, req.body= ', req.body)
@@ -28,7 +25,6 @@ module.exports.Signin = (req, res) => {
         res.send(result)
     })
 }
-
 // 로그인 완료시 프로필 페이지 렌더 및 export
 module.exports.renderProfile = (req, res) => {
     console.log('renderProfile, req.body.id = ', req.body.id)
@@ -37,7 +33,6 @@ module.exports.renderProfile = (req, res) => {
         res.render('profile', result)
     })
 }
-
 // 프로필 수정 기능 구현 및 export
 module.exports.editProfile = (req, res) => {
     console.log('editProfile, req.body = ', req.body)
@@ -45,7 +40,6 @@ module.exports.editProfile = (req, res) => {
         res.send(result)
     })
 }
-
 // 프로필 삭제 기능 구현 및 export
 module.exports.deleteProfile = (req, res) => {
     console.log('deleteProfile, req.body = ', req.body)
@@ -53,3 +47,4 @@ module.exports.deleteProfile = (req, res) => {
         res.send(result)
     })
 }
+

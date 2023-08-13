@@ -1,6 +1,6 @@
 // express 모듈 불러오기
 const express = require('express')
-// epxress 모듈의 Router 함수 router 변수로 정의
+// express 모듈의 Router 함수 router 변수로 정의
 const router = express.Router()
 // controller 모듈 불러오기
 const controller = require('../controller/Cuser.js')
@@ -27,3 +27,4 @@ router.delete('/profile/delete', controller.deleteProfile)
 
 // 정의된 router 함수들을 모두 export
 module.exports = router;
+
