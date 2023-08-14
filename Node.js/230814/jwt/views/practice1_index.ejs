@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>JWT 실습</h1>
+    
+    <!-- 토큰 없을떄 -->
+    <div id="noToken">
+        <a href="/signup">회원가입</a>
+        <a href="/login">로그인</a>
+    </div>
+
+    <!-- 토큰 있을떄 -->
+    <div id="hasToken" hidden>
+    <div id="profile"></div>
+    <button type="button" onclick="logout()">로그아웃</button>
+    </div>
+
+    <script>
+        console.log('token =', window.localStorage.getItem('login'))
+        const token = window.localStorage.getItem('login')
+        if (token) {
+            console.log('hasToken')
+            axios({
+                method: 'post',
+                url: '/verify',
+                headers: {
+                    Authorization: token
+                }
+            }).then((res) => {
+                console.log(res.data)
+                document.getElementById('profile').textContent = `${res.data.user}님 환영합니다`
+                document.getElementById('hasToken').hidden = false
+                document.getElementById('noToken').hidden = true
+            })
+        } else {
+            console.log('noToken')
+        }
+
+        function logout(){
+            localStorage.clear()
+            window.location.href = '/'
+        }
+    </script>
+</body>
+</html>
