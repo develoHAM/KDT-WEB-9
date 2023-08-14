@@ -18,3 +18,4 @@ router.patch('/edit', controller.patchVisitor);
 router.delete('/delete', controller.deleteVisitor);
 
 module.exports = router;
+
