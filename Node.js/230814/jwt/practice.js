@@ -31,15 +31,19 @@ app.post('/login', (req, res) => {
 
 app.post('/verify', (req, res) => {
     console.log(req.headers)
-    const token = req.headers.authorization
-    jwt.verify(token, secret, (err, decoded) => {
-        if(err) {
-            console.log(err)
-            res.send({result: false})
-        } else {
-            res.send({result: true, user: decoded.id})
-        }
-    })
+    const token = req.headers.authorization.split(' ')
+    if(token[0] === 'Bearer') {
+        jwt.verify(token[1], secret, (err, decoded) => {
+            if(err) {
+                console.log(err)
+                res.send({result: false})
+            } else {
+                res.send({result: true, user: decoded.id})
+            }
+        })
+    } else {
+        res.send({result: false})
+    }
 })
 
 app.listen(PORT, () => {
