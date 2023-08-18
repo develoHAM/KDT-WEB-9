@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form name="register">
+        <label for="userid">userid: </label>
+        <input type="text" id="userid">
+        <br>
+        <label for="pw">password: </label>
+        <input type="password" id="pw">
+        <br>
+        <label for="name">name: </label>
+        <input type="text" id="name">
+        <br>
+        <button type="button" onclick="registerFunc()"></button>
+    </form>
+
+    <script>
+        async function registerFunc() {
+            const data = {
+                userid: document.querySelector('#userid').value,
+                pw: document.querySelector('#pw').value,
+                name: document.querySelector('#name').value
+            }
+            const result = await axios({
+                method: "POST",
+                url: "/register",
+                data,
+            })
+            console.log('result', result)
+            if (result) {
+                document.location.href = '/login'
+            }
+        }
+    </script>
+</body>
+</html>

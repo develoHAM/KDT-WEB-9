@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>프로필</h1>
+    <form name="profile-form">
+        <label for="userid">회원 ID: </label>
+        <input type="text" id="userid" placeholder="ID" readonly /><br>
+        <p id="createdAt"></p>
+        <label for="name">성함: </label>
+        <input type="text" id="name" placeholder="NAME" /><br>
+        <label for="pw">비밀번호: </label>
+        <input type="password" id="pw" placeholder="PW" /><br>
+    </form>
+    <button type="button" onclick="logout()">로그아웃</button>
+</body>
+<script>
+    (async function() { 
+        const token = window.localStorage.getItem('userid')
+        const res = await axios({
+            method: "POST",
+            url: "/account",
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        const {userid, name, pw, createdAt} = res.data.result
+        const form = document.forms['profile-form']
+        form.userid.value = userid
+        document.getElementById('createdAt').textContent = `회원가입 일자 ${createdAt}`
+        form.name.value = name
+        form.pw.value = pw
+    })();
+
+    function logout() {
+        localStorage.clear()
+        window.location.href = '/'
+    }
+</script>
+</html>
