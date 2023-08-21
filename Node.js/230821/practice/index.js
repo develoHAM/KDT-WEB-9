@@ -21,11 +21,9 @@ const storage = multer.diskStorage({
         cb(null, newName)
     }
 })
-
 const limits = {
     fileSize: 5 * 1024 * 1024
 }
-
 const upload = multer({storage, limits})
 
 app.get('/', (req, res) => {

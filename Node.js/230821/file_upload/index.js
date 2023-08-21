@@ -13,7 +13,7 @@ app.set('view engine', 'ejs')
 // body-parser
 // req.body 즉, POST 전송일때 사용
 // extended: 중첩된 객체표현을 허용할지 말지 정함
-// application/x-www-form-urlencded
+// application/x-www-form-urlencoded
 app.use(express.urlencoded({extended: true}))
 // application/json
 app.use(express.json())
