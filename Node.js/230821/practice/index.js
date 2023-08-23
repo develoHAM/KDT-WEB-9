@@ -11,20 +11,35 @@ app.use('/uploads', express.static(__dirname + '/uploads'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/')
-    },
-    filename: (req, file, cb) => {
-        const ext = path.extname(file.originalname)
-        const newName = path.basename(file.originalname, ext) + Date.now() + ext
-        cb(null, newName)
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, 'uploads/')
+//     },
+//     filename: (req, file, cb) => {
+//         const ext = path.extname(file.originalname)
+//         const newName = path.basename(file.originalname, ext) + Date.now() + ext
+//         cb(null, newName)
+//     }
+// })
+// const limits = {
+//     fileSize: 5 * 1024 * 1024
+// }
+// const upload = multer({storage, limits})
+
+const upload = multer({
+    storage: multer.diskStorage({
+        destination(req, file, done) {
+            done(null, 'uploads/');
+        },
+        filename(req, file, done) {
+            const ext = path.extname(file.originalname)
+            done(null, path.basename(file.originalname, ext) + Date.now() + ext)
+        }
+    }),
+    limits: {
+        fileSize: 5 * 1024 * 1024
     }
 })
-const limits = {
-    fileSize: 5 * 1024 * 1024
-}
-const upload = multer({storage, limits})
 
 app.get('/', (req, res) => {
     res.render('index')

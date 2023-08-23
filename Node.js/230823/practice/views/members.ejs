@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>회원 정보</h1>
+    <a href="/">홈으로 이동</a>
+    <br />
+    <br />
+    <br />
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>성별</th>
+                <th>전공</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i=0; i < data.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= data[i].name %>
+                    </td>
+                    <td>
+                        <%= data[i].gender %>
+                    </td>
+                    <td>
+                        <%= data[i].major %>
+                    </td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+    <hr>
+    <form name="signup-form">
+        <label for="name">이름</label>
+        <input type="text" id="name">
+        <br>
+        <br>
+        <fieldset>
+            <legend>성별</legend>
+            <label for="male">남자</label>
+            <input type="radio" value="남자" id="male" name="gender">
+            <label for="female">여자</label>
+            <input type="radio" value="여자" id="female" name="gender">
+        </fieldset>
+        <br>
+        <br>
+        <label for="major">전공</label>
+        <input type="text" id="major">
+        <br>
+        <br>
+        <button type="button" onclick="register(<%= Number(data.length) + 1 %>)">가입</button>
+    </form>
+
+    <script>
+        function register(order) {
+            const form = document.forms['signup-form']
+            axios({
+                method: 'post',
+                url: '/new',
+                data: {
+                    id: order,
+                    name: form.name.value,
+                    gender: form.gender.value,
+                    major: form.major.value
+            }
+            }).then((result) => {
+                console.log('reload')
+                location.reload();
+            })
+        }
+    </script>
+</body>
+
+</html>

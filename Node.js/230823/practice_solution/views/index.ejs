@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>MVC</h1>
+        <ul>
+            <% for (let i = 0; i < users.length; i++) { %>
+                <li>
+                    <p>이름: <%= users[i].name %></p>
+                    <p>성별: <%= users[i].gender %></p>
+                    <p>전공: <%= users[i].major %></p>
+                </li>
+            <% } %>
+        </ul>
+        <div>
+            <form name="register">
+                <input type="text" id="name" placeholder="이름"><br>
+                <input type="text" id="gender" placeholder="성별"><br>
+                <input type="text" id="major" placeholder="전공"><br>
+                <button type="button" onclick="registerFunc()">등록</button>
+            </form>
+
+            <script>
+                function registerFunc() {
+                    const form = document.forms['register']
+                    const data = {
+                        name: form.name.value,
+                        gender: form.gender.value,
+                        major: form.major.value
+                    }
+                    axios({
+                        method: 'POST',
+                        url: '/register',
+                        data,
+                    }).then((res) => {
+                        if (res.data.result) {
+                            document.location.reload()
+                        }
+                    })
+                }
+            </script>
+        </div>
+    </body>
+</html>
