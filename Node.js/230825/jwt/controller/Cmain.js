@@ -109,7 +109,7 @@ const post_signin = async (req, res) => {
             //세션 생성
             // req.session.userInfo = { name: user.name, id: user.id };
             //JWT 생성
-            const token = jwt.sign({ name: user.name, id: user.id }, SECRET);
+            const token = jwt.sign({ name: user.name, id: user.id }, SECRET );
             res.cookie('isLogin', true);
             res.cookie('aToken', token);
             res.json({ result: true, data: user, token });
