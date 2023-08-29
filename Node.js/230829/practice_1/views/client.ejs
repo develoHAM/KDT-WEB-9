@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>실습 1</h1>
+    <h2>Hello World!</h2>
+    <br />
+    <button id="hello" value="안녕하세요." onclick="btn(this)">hello</button>
+    <button id="study" value="공부합시다!" onclick="btn(this)">study</button>
+    <button id="bye" value="잘가~" onclick="btn(this)">bye</button>
+    <br />
+    <br />
+    <br />
+    <div id="result"></div>
+    <script>
+        const socket = io()
+        const hello = document.getElementById('hello')
+        const study = document.getElementById('study')
+        const bye = document.getElementById('bye')
+
+        // hello.addEventListener("click", () => {
+        //     socket.emit("btn_hello", 'client: hello')
+        // })
+
+        // study.addEventListener("click", () => {
+        //     socket.emit("btn_study", 'client: study')
+        // })
+
+        // bye.addEventListener("click", () => {
+        //     socket.emit("btn_bye", 'client: bye')
+        // })
+        
+        function btn(e) {
+            console.log(e.id)
+
+            socket.emit('btn', {name: e.id, value: e.value})
+        }
+
+        socket.on('backend_message', (res) => {
+            const result = document.getElementById('result')
+            result.textContent = `${res.name}: ${res.value}`
+        })
+
+        // socket.on('btn_message', (res) => {
+        //     const result = document.getElementById('result')
+        //     console.log(res)
+        //     result.textContent = res
+        // })
+    </script>
+</body>
+
+</html>

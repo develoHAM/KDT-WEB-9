@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div>Socket IO</div>
+    <!-- <button id="btn">BUTTON</button>
+    <input type="text" id="input"> -->
+    <ul></ul>
+    <form id="chat">
+        <input type="text" id="user" placeholder="사용자명" />
+        <input type="text" id="message" placeholder="채팅내용" /><br />
+        <button>채팅</button>
+    </form>
+    <script>
+        const socket = io()
+        //이벤트생성
+        socket.emit('greeting', {name: 'client', message: 'Hello Server'}, (response) => {
+            console.log(response)
+        })
+        // const input = document.querySelector('#input')
+        // document.querySelector('#btn').addEventListener("click", () => {
+        //     if (input.value == '') {
+        //         alert('값을 입력해야함')
+        //     } else {
+        //         socket.emit('click', input.value, (response) => {
+        //             console.log(response)
+        //         })
+        //     }
+        // })
+        const chatForm = document.getElementById('chat')
+        const ul = document.querySelector('ul')
+
+        //이벤트 생성
+        socket.on("backend_message", (arg) => {
+                const li = document.createElement('li')
+                li.textContent = `${arg.name}: ${arg.message}`
+                ul.appendChild(li)
+            })
+        //폼이벤트
+        chatForm.addEventListener("submit", (event) => {
+            event.preventDefault()
+            const user = chatForm.querySelector('#user')
+            const message = chatForm.querySelector('#message')
+            socket.emit('form_message', {name: user.value, message: message.value})
+        })
+    </script>
+</body>
+</html>

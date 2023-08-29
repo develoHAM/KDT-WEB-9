@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+    <style>
+        #chatRoom {
+            width: 300px;
+            height: 500px;
+            background-color: skyblue;
+            padding-top: 30px;
+            padding-left: 10px;
+            padding-right: 10px;
+            
+        }
+        .announcement {
+            color: grey;
+            text-align: center;
+        }
+        .me {
+            text-align: right;
+            background-color: yellow;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: fit-content;
+            padding: 5px;
+        }
+        .others {
+            text-align: left;
+            background-color: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: fit-content;
+            padding: 5px;
+        }
+        .wrapper-right {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .wrapper-left {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>실습 2</h1>
+    <div id="chatRoom"></div>
+    <form id="chat">
+        <input type="text" id="message" placeholder="메세지 입력" />
+        <button>전송</button>
+    </form>
+    <script>
+        const socket = io()
+        const chatForm = document.querySelector('#chat')
+        const room = document.getElementById('chatRoom')
+        //채팅방 생성
+        const chatRoom = prompt('채팅방명을 입력하세요')
+        socket.emit("join", chatRoom)
+
+        //신규 입장 이벤트
+        socket.on('newParty', (data) => {
+            const announcement = document.createElement('div')
+            announcement.setAttribute('class', 'announcement')
+            announcement.textContent = data
+            room.appendChild(announcement)
+        })
+
+        socket.on('chat', (data) => {
+            const announcement = document.createElement('div')
+            const bubbleWrapper = document.createElement('div')
+            announcement.setAttribute('class', 'others')
+            announcement.textContent = data
+            bubbleWrapper.setAttribute('class', 'wrapper-left')
+            bubbleWrapper.appendChild(announcement)
+            room.appendChild(bubbleWrapper)
+        })
+
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const message = document.getElementById('message')
+            socket.emit('message', message.value)
+            const chatBubble = document.createElement('div')
+            const bubbleWrapper = document.createElement('div')
+            chatBubble.setAttribute('class', 'me')
+            bubbleWrapper.setAttribute('class', 'wrapper-right')
+            chatBubble.textContent = message.value
+            bubbleWrapper.appendChild(chatBubble)
+            room.appendChild(bubbleWrapper)
+            message.value = '';
+        })
+    </script>
+</body>
+
+</html>
