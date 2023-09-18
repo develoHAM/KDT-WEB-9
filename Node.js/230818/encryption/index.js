@@ -12,8 +12,8 @@ app.use(express.json());
 
 //router
 app.get('/', (req, res) => {
-    console.log(process.env.NAME);
-    console.log(process.env.NODE_ENV);
+    console.log('process.env.NAME',process.env.NAME);
+    console.log('process.env.NODE_ENV',process.env.NODE_ENV);
     console.log(typeof process.env.NUM);
     res.render('index');
 });

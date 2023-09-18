@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="socket.io/socket.io.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .chat-wrapper {
+            width: 100%;
+        }
+
+        .chat-container {
+            width: 100vw;
+            height: 70vh;
+            background-color: bisque;
+            overflow-y: auto;
+        }
+
+        .message {
+            display: flex;
+            margin: 10px 0;
+        }
+
+        .announcement {
+            justify-content: center;
+        }
+
+        .announcement span {
+            color: gray;
+        }
+
+        .other-chat {
+            justify-content: flex-start;
+        }
+
+        .other-chat span {
+            background-color: white;
+            border-radius: 100px;
+            padding: 10px;
+            margin: 0 10px;
+            max-width: 50%;
+        }
+
+        .my-chat {
+            justify-content: flex-end;
+        }
+
+        .my-chat span {
+            background-color: yellow;
+            border-radius: 100px;
+            padding: 10px;
+            margin: 0 10px;
+            max-width: 50%;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="room-wrapper">
+        <form id="roomForm">
+            <input type="text" id="roomName" placeholder="방 이름" />
+            <input type="text" id="userName" placeholder="사용할 아이디" />
+            <button>제출</button>
+        </form>
+        <ul id="roomList"></ul>
+    </div>
+    <div id="chat-wrapper" hidden>
+        <div class="chat-container"></div>
+        <div class="input-container">
+            <form id="messageForm">
+                <select name="userList" id="userList"></select>
+                <input type="text" id="message" placeholder="메세지">
+                <button>전송</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const socket = io()
+
+        const roomForm = document.querySelector('#roomForm')
+        const roomName = document.querySelector('#roomName')
+        const userName = document.querySelector('#userName')
+        const roomList = document.querySelector('#roomList')
+
+        const chatContainer = document.querySelector('.chat-container')
+        const messageForm = document.querySelector('#messageForm')
+
+        let myName;
+
+        function addMessage(msg, source) {
+            const div = document.createElement('div')
+            const span = document.createElement('span')
+            span.textContent = msg;
+
+            switch (source) {
+                case 'announcement':
+                    div.classList.add('announcement')
+                    break;
+
+                case myName:
+                    div.classList.add('my-chat')
+                    break;
+
+                default:
+                    div.classList.add('other-chat')
+                    break;
+            }
+
+            div.classList.add('message')
+            div.appendChild(span)
+            chatContainer.appendChild(div)
+        }
+
+        socket.on('greeting', (data) => {
+            console.log(`hello, your socket.id is ${data}`)
+        })
+
+        socket.on('newUser', (data) => {
+            addMessage(`${data}님이 입장하셨습니다!`, 'announcement')
+        })
+
+        socket.on('newMessage', (data) => {
+            console.log(data)
+            addMessage(`${data.from}: ${data.message}`, data.from)
+        })
+
+        roomForm.addEventListener('submit', (e) => {
+            e.preventDefault()
+            socket.emit('joinRoom', { roomName: roomName.value, userName: userName.value }, (res) => {
+                console.log(res.result)
+                if (res.result) {
+                    const room = document.querySelector('#room-wrapper')
+                    const chat = document.querySelector('#chat-wrapper')
+                    room.hidden = true;
+                    chat.hidden = false;
+                    myName = userName.value
+                } else {
+                    alert('해당 방에서 이미 넥네임을 사용중입니다')
+                }
+            })
+        })
+
+        messageForm.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const to = document.querySelector('#userList')
+            const message = document.querySelector('#message')
+            const data = {
+                to: to.value,
+                from: myName,
+                message: message.value,
+            }
+            socket.emit('newMessage', data)
+            message.value = '';
+        })
+    </script>
+</body>
+
+</html>
