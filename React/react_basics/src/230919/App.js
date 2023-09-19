@@ -7,15 +7,16 @@ import FunctionComponent from "./FunctionComponent";
 // import Book from './Practice4' // 실습 4
 import Event from './Event'
 import EventClass from './EventClass'
-import EventHandling from './Practice5'
+// import EventHandling from './Practice5' //실습 5
+import Study from './SelfStudy'
 
 function App() {
 
   return (
     <>
-      {/* <ClassComponent></ClassComponent>
-      <FunctionComponent></FunctionComponent>
-      <ClassComponent></ClassComponent> */}
+      {/* <ClassComponent>헬로</ClassComponent> */}
+      {/* <FunctionComponent></FunctionComponent> */}
+      {/* <ClassComponent></ClassComponent> */}
       {/* <Caterpillar></Caterpillar> 실습 1*/}
       {/* <Test></Test> 실습 2*/}
       {/* <Test2></Test2> 실습 2*/}
@@ -26,9 +27,10 @@ function App() {
       {/* <Food food="햄버거"></Food> 실습 3*/}
       {/* <Food></Food> 실습 3*/}
       {/* <Book title={'나의 하루는 4시 40분에 시작된다'} author={'김유진'} price={'13,500원'} type={'자기계발서'}></Book> 실습 4*/}
-      {/* <Event></Event> */}
-      {/* <EventClass /> */}
-      <EventHandling message='안녕하세요'></EventHandling>
+      <Event></Event>
+      <EventClass />
+      {/* <EventHandling message='안녕하세요'></EventHandling> */}
+      <Study></Study>
     </>
   );
 }

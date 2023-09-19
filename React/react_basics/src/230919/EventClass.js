@@ -12,11 +12,11 @@ class EventClass extends Component {
     }
 
     handleClick() {
-        alert('클래스형 컴포넌트')
+        console.log('클래스형 컴포넌트')
     }
 
     handleClick2 = (msg) => {
-        alert(msg)
+        console.log(msg)
     }
 
     render() {

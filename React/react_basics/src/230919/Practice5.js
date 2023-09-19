@@ -7,9 +7,9 @@ class EventHandling extends Component {
         alert(msg)
     }
 
-    showMessage = () => {
-        alert(this.props.message)
-    }
+    // showMessage = () => {
+    //     alert(this.props.message)
+    // }
 
     render() {
         // const { message } = this.props

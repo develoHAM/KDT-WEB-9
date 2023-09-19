@@ -22,6 +22,7 @@ class ClassComponent extends Component {
                 <h2>안녕하세요 {this.props.name}</h2>
                 <h2>나이는 {age}</h2>
                 <p>여기는 클래스형 컴포넌트</p>
+                <p>{this.props.children}</p>
             </>
         )
     }

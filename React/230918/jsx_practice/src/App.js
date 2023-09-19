@@ -71,11 +71,13 @@ function App() {
           </div>
 
           <ul>
-            {filter.map((user, index) => {
+            {/* {filter.map((user, index) => {
               return (
                 <li key={index}>{user.name}</li>
               )
-            })}
+            })} */}
+
+            {filter.map((user, index) => <li key={index}>{user.name}</li>)}
           </ul>
         </>
       )}
