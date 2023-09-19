@@ -1,0 +1,31 @@
+div {
+	width: 400px;
+	height: 600px;
+	background-color: bisque;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	box-sizing: border-box;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+.heading {
+	text-align: center;
+	color: rgb(255, 98, 0);
+}
+
+.bookInfo {
+	width: 80%;
+	align-self: center;
+}
+
+.bookInfo h2 {
+	text-align: center;
+}
+
+p {
+	margin: 2%;
+}
