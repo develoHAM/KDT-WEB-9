@@ -1,0 +1,14 @@
+{
+	"javascript.format.insertSpaceAfterConstructor": true,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+	"javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+	"javascript.format.semicolons": "insert",
+	"javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+	"javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+	"javascript.inlayHints.parameterNames.enabled": "none",
+	"javascript.inlayHints.functionLikeReturnTypes.enabled": false,
+	"javascript.preferences.quoteStyle": "single"
+}
