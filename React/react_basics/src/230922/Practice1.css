@@ -1,0 +1,29 @@
+.header {
+	height: 10vh;
+	background-color: darkslategrey;
+	color: white;
+	text-align: center;
+	font-size: 40px;
+	line-height: 10vh;
+}
+
+.loading {
+	text-align: center;
+	font-size: 30px;
+}
+
+.post-container {
+	width: 80vw;
+	height: auto;
+	margin: auto;
+	padding: 2%;
+	background-color: skyblue;
+}
+
+.id {
+	color: blue;
+}
+
+.title {
+	color: grey;
+}

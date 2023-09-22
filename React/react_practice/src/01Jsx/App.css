@@ -1,0 +1,50 @@
+.text {
+    background-color: #f9e9ca;
+    color: orange;
+    font-size: 40px;
+    text-align: center;
+}
+
+.input {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.red {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+.orange {
+    width: 100px;
+    height: 200px;
+    background-color: orange;
+}
+.yellow {
+    width: 100px;
+    height: 300px;
+    background-color: yellow;
+}
+.green {
+    width: 100px;
+    height: 400px;
+    background-color: green;
+}
+.blue {
+    width: 100px;
+    height: 500px;
+    background-color: blue;
+}
+.navy {
+    width: 100px;
+    height: 600px;
+    background-color: navy;
+}
+.purple {
+    width: 100px;
+    height: 700px;
+    background-color: purple;
+}
+.all {
+    display: flex;
+}

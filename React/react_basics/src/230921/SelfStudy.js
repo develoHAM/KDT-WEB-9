@@ -17,6 +17,7 @@ export default function TODO() {
 		const newTodoList = todoList.map((todo) => {
 			return todo.id === id ? { ...todo, checked: e.target.checked } : todo;
 		});
+		console.log(newTodoList);
 		setTodoList(newTodoList);
 	};
 
