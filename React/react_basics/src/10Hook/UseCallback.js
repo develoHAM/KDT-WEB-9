@@ -21,6 +21,7 @@ export default function UseCallback() {
 	};
 
 	//useCallback사용
+	//반복해서 생성되는 이벤트 핸들러 함수를 useCallback으로 감싸줘서 함수를 메모이제이션 한다
 	const plusCountCallback = useCallback(() => {
 		console.log('plusCountCallback', count);
 		setCount((prev) => prev + 1);
@@ -33,8 +34,10 @@ export default function UseCallback() {
 
 	return (
 		<>
-			<input value={inputValue} onChange={(e) => onChange(e)} />
+			{/* <input value={inputValue} onChange={(e) => onChange(e)} />
 			<ChildComponent onClick={plusCountCallback}></ChildComponent>
+			<p>{count}</p> */}
+			<button onClick={plusCountCallback}>PLUS</button>
 			<p>{count}</p>
 		</>
 	);

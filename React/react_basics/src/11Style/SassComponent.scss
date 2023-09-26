@@ -1,0 +1,35 @@
+@import './utils.scss';
+
+.SassComponent {
+	display: flex;
+
+	.box {
+		@include box(100px);
+		// width: 100px;
+		// height: 100px;
+		// border: 1px dotted black;
+
+		//&: 중첩안에서 &키워드는 부모선택자를 참조하여 치환
+		&.red {
+			background-color: $color-red;
+		}
+		&.orange {
+			background-color: $color-orange;
+		}
+		&.yellow {
+			background-color: $color-yellow;
+		}
+		&.green {
+			background-color: $color-green;
+		}
+		&.blue {
+			background-color: $color-blue;
+		}
+		&.navy {
+			background-color: $color-navy;
+		}
+		&.purple {
+			background-color: $color-purple;
+		}
+	}
+}

@@ -1,0 +1,37 @@
+@import './utils-practice2';
+
+// .circle {
+// 	@include circleSize(30px);
+
+// 	&.pink {
+// 		background-color: $color-pink;
+
+// 		@include my-animation(a, 2s, 100px);
+// 	}
+// 	&.yellow {
+// 		background-color: $color-yellow;
+
+// 		@include my-animation(b, 2s, 200px);
+// 	}
+
+// 	&.green {
+// 		background-color: $color-green;
+
+// 		@include my-animation(c, 2s, 300px);
+// 	}
+// }
+
+.circle {
+	&.pink {
+		@include circle(pink);
+		@include rotate-circle(pink, 100px);
+	}
+	&.yellow {
+		@include circle(yellow);
+		@include rotate-circle(yellow, 200px);
+	}
+	&.green {
+		@include circle(green);
+		@include rotate-circle(green, 300px);
+	}
+}

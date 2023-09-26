@@ -17,6 +17,10 @@ import RefPrac1ANS from './09Ref/RefPrac1ANS';
 import RefPrac2 from './09Ref/RefPrac2';
 import RefPrac2ANS from './09Ref/RefPrac2ANS';
 import SignupForm from './10Hook/UseReducerPrac';
+import Caterpillar from './11Style/Practice1';
+import Practice2 from './11Style/Practice2';
+import StyledComponent from './11Style/StyledComponent';
+import StyledComponent2 from './11Style/StyledComponent2';
 
 function App() {
 	return (
@@ -48,7 +52,11 @@ function App() {
 			{/* <RefPrac1></RefPrac1> */}
 			{/* <RefPrac1ANS></RefPrac1ANS> */}
 			{/* <RefPrac2ANS /> */}
-			<SignupForm />
+			{/* <SignupForm /> */}
+			{/* <Caterpillar /> */}
+			{/* <Practice2 /> */}
+			<StyledComponent />
+			{/* <StyledComponent2 /> */}
 		</>
 	);
 }
