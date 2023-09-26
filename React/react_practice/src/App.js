@@ -12,6 +12,11 @@ import UseStatePrac4 from './07UseState/UseStatePrac4';
 import UseStatePrac5 from './07UseState/UseStatePrac5';
 import LifePrac1 from './08Lifecycle/LifePrac1';
 import LifePrac2 from './08Lifecycle/LifePrac2';
+import RefPrac1 from './09Ref/RefPrac1';
+import RefPrac1ANS from './09Ref/RefPrac1ANS';
+import RefPrac2 from './09Ref/RefPrac2';
+import RefPrac2ANS from './09Ref/RefPrac2ANS';
+import SignupForm from './10Hook/UseReducerPrac';
 
 function App() {
 	return (
@@ -39,7 +44,11 @@ function App() {
             <UseStatePrac4 />
             <UseStatePrac5 /> */}
 			{/* <LifePrac1></LifePrac1> */}
-			<LifePrac2 />
+			{/* <LifePrac2 /> */}
+			{/* <RefPrac1></RefPrac1> */}
+			{/* <RefPrac1ANS></RefPrac1ANS> */}
+			{/* <RefPrac2ANS /> */}
+			<SignupForm />
 		</>
 	);
 }
