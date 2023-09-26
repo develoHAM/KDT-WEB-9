@@ -18,8 +18,8 @@ export default function App() {
 			<RefSampleFunction1></RefSampleFunction1> */}
 			{/* <RefSampleFunction2></RefSampleFunction2> */}
 			{/* <UseMemo></UseMemo> */}
-			<UseCallback></UseCallback>
-			{/* <Counter></Counter> */}
+			{/* <UseCallback></UseCallback> */}
+			<Counter></Counter>
 			{/* <SelfStudyUseMemo /> */}
 			{/* <SelfStudyUseCallback /> */}
 		</>

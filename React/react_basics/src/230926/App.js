@@ -6,8 +6,8 @@ export default function App() {
 	return (
 		<>
 			{/* <Style></Style> */}
-			{/* <SassComponent /> */}
-			<StyledComponent />
+			<SassComponent />
+			{/* <StyledComponent /> */}
 		</>
 	);
 }

@@ -5,7 +5,6 @@ const initialState = { count: 0 };
 
 //reducer함수(상태, 액션)을 받아 새로운 상태를 반환하는 함수
 //reducer(state, action), 액션에는 type이 존재
-
 function reducer(state, action) {
 	switch (action.type) {
 		case 'INCREMENT':

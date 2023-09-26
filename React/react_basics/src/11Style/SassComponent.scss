@@ -33,3 +33,14 @@
 		}
 	}
 }
+
+.random-div {
+	width: 400px;
+	height: 400px;
+	background-color: bisque;
+}
+
+.random {
+	background-color: blue;
+	@extend .random-div;
+}
