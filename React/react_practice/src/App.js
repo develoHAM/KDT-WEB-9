@@ -1,3 +1,4 @@
+import { Outlet, RouterProvider } from 'react-router-dom';
 import PropsPrac1 from './04Props/PropsPrac1';
 import PropsPrac2 from './04Props/PropsPrac2';
 import Message from './05Event/Message';
@@ -21,6 +22,8 @@ import Caterpillar from './11Style/Practice1';
 import Practice2 from './11Style/Practice2';
 import StyledComponent from './11Style/StyledComponent';
 import StyledComponent2 from './11Style/StyledComponent2';
+import RouterPrac1 from './12Router/Practice1';
+import Router from './12Router/Practice1';
 
 function App() {
 	return (
@@ -55,8 +58,10 @@ function App() {
 			{/* <SignupForm /> */}
 			{/* <Caterpillar /> */}
 			{/* <Practice2 /> */}
-			<StyledComponent />
+			{/* <StyledComponent /> */}
 			{/* <StyledComponent2 /> */}
+			{/* <RouterPrac1 /> */}
+			<RouterProvider router={Router} />
 		</>
 	);
 }
