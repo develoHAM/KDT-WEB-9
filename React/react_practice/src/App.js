@@ -25,6 +25,12 @@ import StyledComponent2 from './11Style/StyledComponent2';
 import RouterPrac1 from './12Router/Practice1';
 import Router from './12Router/Practice1';
 import FormPractice1 from './13Form/Practice1';
+import { ContextProvider } from './14Context/context';
+import ThemeSelector from './14Context/ThemeSelector';
+import LanguageSelector from './14Context/LanguageSelector';
+import { ProductContextProvider } from './14Context/shopping-context';
+import ProductList from './14Context/ProductList';
+import Cart from './14Context/Cart';
 
 function App() {
 	return (
@@ -63,7 +69,17 @@ function App() {
 			{/* <StyledComponent2 /> */}
 			{/* <RouterPrac1 /> */}
 			{/* <RouterProvider router={Router} /> */}
-			<FormPractice1 />
+			{/* <FormPractice1 /> */}
+
+			{/* <ContextProvider>
+				<ThemeSelector />
+				<LanguageSelector />
+			</ContextProvider> */}
+
+			<ProductContextProvider>
+				<ProductList />
+				<Cart />
+			</ProductContextProvider>
 		</>
 	);
 }

@@ -1,7 +1,7 @@
 import { Outlet, Routes, Route, Link, NavLink, useLocation } from 'react-router-dom';
-import Header from '../12Router/Header';
-import Router from '../12Router/Router';
-import Home from '../12Router/Home';
+import Header from '../12RouterDOM/Header';
+import Router from '../12RouterDOM/Router';
+import Home from '../12RouterDOM/Home';
 import BookList from './BookList';
 import Book from './Book';
 import NewBook from './NewBook';
