@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useOutletContext } from 'react-router-dom';
 
 export const users = [
 	{
@@ -44,11 +44,14 @@ export default function User() {
 	//setSearchParams는 쿼리스트링 값을 할당하는것
 	const [searchParams, setSearchParams] = useSearchParams();
 	console.log(searchParams.get('mode'));
+	const context = useOutletContext();
+	console.log('context', context);
 	// setTimeout(() => {
 	// 	setSearchParams({ mode: 'Light' });
 	// }, 5000);
 	return (
 		<div>
+			<button onClick={() => setSearchParams({ mode: 'Tablet' })}></button>
 			<ul>
 				{users.map((value) => {
 					return (

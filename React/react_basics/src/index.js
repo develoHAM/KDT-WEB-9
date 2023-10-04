@@ -8,16 +8,17 @@ import { RouterProvider, BrowserRouter } from 'react-router-dom';
 // import App from './230922/App';
 // import App from './230925/App';
 // import App from './230926/App';
-import App from './230927/App';
-import Router from './12Router/Router';
+// import App from './230927/App';
+// import Router from './12Router/Router';
+import App from './231004/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		{/* <App /> */}
+		<App />
 		{/* <RouterProvider router={Router} /> */}
-		<BrowserRouter>
+		{/* <BrowserRouter>
 			<App></App>
-		</BrowserRouter>
+		</BrowserRouter> */}
 	</React.StrictMode>
 );

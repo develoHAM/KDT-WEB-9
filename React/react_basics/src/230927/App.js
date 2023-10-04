@@ -9,16 +9,16 @@ import BookLayout from './BookLayout';
 import BookRoutes from './BookRoutes';
 import NotFound from './NotFound';
 export default function App() {
-	const location = useLocation();
-	console.log(location);
+	// const location = useLocation();
+	// console.log(location);
 	return (
 		<>
 			{/* 방법1 */}
 			{/* <Router /> */}
 			{/* 방법2 */}
-			{/* <Header />
-	 	<Outlet /> */}
-			<nav>
+			<Header />
+			<Outlet context={{ data: 'hi' }} />
+			{/* <nav>
 				<ul>
 					<li>
 						<NavLink to='/'>Home</NavLink>
@@ -27,18 +27,18 @@ export default function App() {
 						<NavLink to='/books'>Books</NavLink>
 					</li>
 				</ul>
-			</nav>
-			{location.state}
-			<Routes>
+			</nav> */}
+			{/* {location.state} */}
+			{/* <Routes>
 				<Route path='/' element={<Home />} />
-				{/* <Route path='/books/*' element={<BookRoutes />}></Route> */}
+				<Route path='/books/*' element={<BookRoutes />}></Route>
 				<Route path='/books' element={<BookLayout />}>
 					<Route index element={<BookList />} />
 					<Route path=':id' element={<Book />} />
 					<Route path='new' element={<NewBook />} />
 				</Route>
 				<Route path='*' element={<NotFound />} />
-			</Routes>
+			</Routes> */}
 		</>
 	);
 }

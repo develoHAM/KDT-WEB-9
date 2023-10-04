@@ -24,6 +24,7 @@ import StyledComponent from './11Style/StyledComponent';
 import StyledComponent2 from './11Style/StyledComponent2';
 import RouterPrac1 from './12Router/Practice1';
 import Router from './12Router/Practice1';
+import FormPractice1 from './13Form/Practice1';
 
 function App() {
 	return (
@@ -61,7 +62,8 @@ function App() {
 			{/* <StyledComponent /> */}
 			{/* <StyledComponent2 /> */}
 			{/* <RouterPrac1 /> */}
-			<RouterProvider router={Router} />
+			{/* <RouterProvider router={Router} /> */}
+			<FormPractice1 />
 		</>
 	);
 }
