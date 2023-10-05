@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import ProductContext from './shopping-context';
 import styled from 'styled-components';
 import CartTotal from './CartTotal';
+import CartItem from './CartItem';
 
 const _Cart = styled.ul`
 	border: 1px solid black;
@@ -16,30 +17,13 @@ export default function Cart() {
 	});
 	console.log('cartItems', cartItems);
 
-	const handleDelete = (id) => {
-		const updatedList = products.map((product) => {
-			if (product.id == id) {
-				return { ...product, quantity: product.quantity - 1 };
-			} else {
-				return product;
-			}
-		});
-		setProducts(updatedList);
-	};
 	return (
 		<>
 			<h4>My Cart</h4>
 			<_Cart>
-				{cartItems.map((product) => {
-					return (
-						<li key={product.id}>
-							<div>{product.name}</div>
-							<div>{product.price} KRW</div>
-							<div>수량: {product.quantity}</div>
-							<button onClick={() => handleDelete(product.id)}>장바구니에 삭제</button>
-						</li>
-					);
-				})}
+				{cartItems.map((product) => (
+					<CartItem product={product} />
+				))}
 			</_Cart>
 			<CartTotal>Total:</CartTotal>
 		</>

@@ -31,6 +31,9 @@ import LanguageSelector from './14Context/LanguageSelector';
 import { ProductContextProvider } from './14Context/shopping-context';
 import ProductList from './14Context/ProductList';
 import Cart from './14Context/Cart';
+import ProductListPractice from './14Context/ProductListPractice';
+import CartPracice from './14Context/CartPractice';
+import { CartProvider } from './14Context/store/cart-context';
 
 function App() {
 	return (
@@ -71,15 +74,21 @@ function App() {
 			{/* <RouterProvider router={Router} /> */}
 			{/* <FormPractice1 /> */}
 
+			{/* ContextAPI 실습1 */}
 			{/* <ContextProvider>
 				<ThemeSelector />
 				<LanguageSelector />
 			</ContextProvider> */}
 
-			<ProductContextProvider>
+			{/* ContextAPI 실습2 */}
+			{/* <ProductContextProvider>
 				<ProductList />
 				<Cart />
-			</ProductContextProvider>
+			</ProductContextProvider> */}
+			<CartProvider>
+				<ProductListPractice />
+				<CartPracice />
+			</CartProvider>
 		</>
 	);
 }

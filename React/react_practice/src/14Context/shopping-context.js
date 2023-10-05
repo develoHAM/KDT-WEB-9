@@ -11,21 +11,18 @@ export function ProductContextProvider({ children }) {
 			id: 1,
 			name: '청바지',
 			price: 80000,
-			added: false,
 			quantity: 0,
 		},
 		{
 			id: 2,
 			name: '니트',
 			price: 5000,
-			added: false,
 			quantity: 0,
 		},
 		{
 			id: 3,
 			name: '노트북',
 			price: 1000,
-			added: false,
 			quantity: 0,
 		},
 	];

@@ -10,7 +10,8 @@ import { RouterProvider, BrowserRouter } from 'react-router-dom';
 // import App from './230926/App';
 // import App from './230927/App';
 // import Router from './12Router/Router';
-import App from './231004/App';
+// import App from './231004/App';
+import App from './231005/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
