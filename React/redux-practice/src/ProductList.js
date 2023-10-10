@@ -23,8 +23,8 @@ export default function ProductList() {
 	const loginState = useSelector((state) => state.login.isLoggedIn);
 	const dispatch = useDispatch();
 	const addProduct = (product) => {
-		console.log('addToCart', product);
 		dispatch(cartAction.addToCart(product));
+		console.log('addToCart', product);
 	};
 
 	return (
